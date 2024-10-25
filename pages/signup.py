@@ -37,6 +37,17 @@ class SignupPage:
         padding=5
     )
 
+    confirm_password_input = ft.Container(
+        content=ft.TextField(label='Repeat Password',
+                             password=True, can_reveal_password=True,
+                             bgcolor=secondaryBgColor,
+                             border=ft.InputBorder.NONE,
+                             filled=True,
+                             color=secondaryFontColor),
+        border_radius=15,
+        padding=5
+    )
+
 
     def view(self, page: ft.Page, params: Params, basket: Basket):
         page.title = 'Signup Page'
