@@ -52,11 +52,11 @@ class LoginPage:
                                 horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                                 controls=[
                                     ft.Icon(name=ft.icons.LOCK_PERSON_ROUNDED,
-                                            color=hoverBgColor,
+                                            color=loginFontColor,
                                             size=140,),
                                     ft.Text('Login',
-                                            color=hoverBgColor,
-                                            size=15,
+                                            color=loginFontColor,
+                                            size=25,
                                             weight=ft.FontWeight.BOLD)
                                 ]
                             )
