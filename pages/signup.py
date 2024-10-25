@@ -5,9 +5,19 @@ from utils.style import *
 
 
 class SignupPage:
-    # add email input with styles
+    # form elements signup
     email_input = ft.Container(
         content=ft.TextField(label='Email',
+                             bgcolor=secondaryBgColor,
+                             border=ft.InputBorder.NONE,
+                             filled=True,
+                             color=secondaryFontColor),
+        border_radius=15,
+        padding=5
+    )
+
+    login_input = ft.Container(
+        content=ft.TextField(label='Login',
                              bgcolor=secondaryBgColor,
                              border=ft.InputBorder.NONE,
                              filled=True,
@@ -26,6 +36,7 @@ class SignupPage:
         border_radius=15,
         padding=5
     )
+
 
     def view(self, page: ft.Page, params: Params, basket: Basket):
         page.title = 'Signup Page'
@@ -84,6 +95,8 @@ class SignupPage:
             bgcolor=defaultBgColor,
             padding=0
         )
+
+
 import flet as ft
 from flet_core.colors import with_opacity
 from flet_route import Params, Basket
@@ -120,7 +133,8 @@ class LoginPage:
         page.window.min_width = 800
         page.window.min_height = 400,
         page.fonts = {"gotham": "fonts/font.ttf"}
-        signup_link = ft.Container(ft.Text('Create Account', color=defaultFontColor, font_family="gotham"),on_click=lambda e: page.go('/signup'), padding=10)
+        signup_link = ft.Container(ft.Text('Create Account', color=defaultFontColor, font_family="gotham"),
+                                   on_click=lambda e: page.go('/signup'), padding=10)
 
         return ft.View(
             "/",
