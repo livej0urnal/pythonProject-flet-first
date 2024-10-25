@@ -40,12 +40,12 @@ class LoginPage:
                                             weight=ft.FontWeight.NORMAL)
                                 ]
                             )
+                        ),
+                        ft.Container(
+                            expand=3,
+                            image_src='images/bg_login.jpg',
                         )
                     ]
-                ),
-                ft.Container(
-                    expand=3,
-                    image_src='images/bg_login.jpg',
                 )
             ],
             bgcolor=defaultBgColor,
