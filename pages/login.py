@@ -9,6 +9,7 @@ class LoginPage:
         return ft.View(
             "/",
             controls=[
-                ft.Text('Login')
+                ft.Text('Login'),
+                ft.ElevatedButton('Signup page', on_click=lambda e: page.go("/signup"))
             ]
         )
