@@ -68,7 +68,7 @@ class SignupPage:
                                 alignment=ft.MainAxisAlignment.CENTER,
                                 horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                                 controls=[
-                                    ft.Icon(name=ft.icons.LOCK_PERSON_ROUNDED,
+                                    ft.Icon(name=ft.icons.VERIFIED_USER_OUTLINED,
                                             color=loginFontColor,
                                             size=140, ),
                                     ft.Text('Signup',
