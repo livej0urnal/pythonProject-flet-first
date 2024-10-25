@@ -13,7 +13,7 @@ class LoginPage:
                              filled=True,
                              color=secondaryFontColor),
         border_radius=15,
-        padding=10
+        padding=5
     )
 
     password_input = ft.Container(
@@ -24,7 +24,7 @@ class LoginPage:
                              filled=True,
                              color=secondaryFontColor),
         border_radius=15,
-        padding=10
+        padding=5
     )
 
     def view(self, page: ft.Page, params: Params, basket: Basket):
