@@ -48,7 +48,7 @@ class SignupPage:
                                 alignment=ft.MainAxisAlignment.CENTER,
                                 horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                                 controls=[
-                                    ft.Text('Register Form',
+                                    ft.Text('Signup Form',
                                             color=defaultFontColor,
                                             size=25,
                                             weight=ft.FontWeight.NORMAL,
@@ -56,7 +56,7 @@ class SignupPage:
                                     self.email_input,
                                     self.password_input,
                                     ft.Container(
-                                        ft.Text('Register', color=defaultFontColor, font_family="gotham"),
+                                        ft.Text('Signup', color=defaultFontColor, font_family="gotham"),
                                         alignment=ft.alignment.center, height=40, bgcolor=hoverBgColor, padding=10
                                     ),
                                 ]
