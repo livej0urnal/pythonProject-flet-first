@@ -2,9 +2,16 @@ import flet as ft
 from flet_route import Params, Basket
 from utils.style import *
 
+
 class LoginPage:
-
-
+    email_input = ft.Container(
+        content=ft.TextField(label='Email',
+                             bgcolor=secondaryBgColor,
+                             border=ft.InputBorder.NONE,
+                             filled=True,
+                             color=secondaryFontColor),
+        border_radius=15
+    )
 
     def view(self, page: ft.Page, params: Params, basket: Basket):
         page.title = 'Login Page'
@@ -16,7 +23,6 @@ class LoginPage:
         return ft.View(
             "/",
             controls=[
-                ft.Text('Login'),
-                ft.ElevatedButton('Signup page', on_click=lambda e: page.go("/signup"))
+                self.email_input,
             ]
         )
