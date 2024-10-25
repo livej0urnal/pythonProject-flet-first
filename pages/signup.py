@@ -2,13 +2,13 @@ import flet as ft
 from flet_route import Params, Basket
 
 
-class LoginPage:
+class SignupPage:
     def view(self, page: ft.Page, params: Params, basket: Basket):
-        page.title = 'Login Page'
+        page.title = 'Signup Page'
 
         return ft.View(
-            "/",
+            "/signup",
             controls=[
-                ft.text('Login')
+                ft.Text('Signup')
             ]
         )

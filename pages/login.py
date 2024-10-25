@@ -9,6 +9,6 @@ class LoginPage:
         return ft.View(
             "/",
             controls=[
-                ft.text('Login')
+                ft.Text('Login')
             ]
         )
