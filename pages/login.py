@@ -19,7 +19,8 @@ class LoginPage:
         page.window.width = defaultWidthWindow
         page.window.height = defaultHeightWindow
         page.window.min_width = 800
-        page.window.min_height = 400
+        page.window.min_height = 400,
+        page.fonts = {"gotham": "fonts/font.ttf"}
 
         return ft.View(
             "/",
@@ -37,13 +38,28 @@ class LoginPage:
                                     ft.Text('Hello Administrator',
                                             color=defaultFontColor,
                                             size=25,
-                                            weight=ft.FontWeight.NORMAL)
+                                            weight=ft.FontWeight.NORMAL,
+                                            font_family='gotham')
                                 ]
                             )
                         ),
                         ft.Container(
                             expand=3,
                             image_src='images/bg_login.jpg',
+                            image_fit=ft.ImageFit.COVER,
+                            content=ft.Column(
+                                alignment=ft.MainAxisAlignment.CENTER,
+                                horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                                controls=[
+                                    ft.Icon(name=ft.icons.LOCK_PERSON_ROUNDED,
+                                            color=hoverBgColor,
+                                            size=140,),
+                                    ft.Text('Login',
+                                            color=hoverBgColor,
+                                            size=15,
+                                            weight=ft.FontWeight.BOLD)
+                                ]
+                            )
                         )
                     ]
                 )
