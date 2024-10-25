@@ -33,7 +33,12 @@ class LoginPage:
         page.window.height = defaultHeightWindow
         page.window.min_width = 800
         page.window.min_height = 400,
-        page.fonts = {"gotham": "fonts/font.ttf"}
+        page.fonts = {"gotham": "fonts/font.ttf"},
+        signup_link = ft.Container(
+            ft.Text('Create Account',
+                    color=defaultFontColor),
+            on_click=lambda e:page.go('/signup')
+        )
 
         return ft.View(
             "/",
@@ -59,10 +64,7 @@ class LoginPage:
                                         ft.Text('Login', color=defaultFontColor, font_family="gotham"),
                                         alignment=ft.alignment.center, height=40, bgcolor=hoverBgColor, padding=10
                                     ),
-                                    ft.Container(
-                                        ft.Text('Create Account', color=defaultFontColor, font_family="gotham"),
-                                        on_click=lambda e: page.go('/signup'), padding=10
-                                    )
+                                    signup_link
                                 ]
                             )
                         ),
