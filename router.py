@@ -7,6 +7,7 @@ class Router:
     def __init__(self, page: ft.Page):
         self.page = page
         self.app_routes = [
+            # routing in app
             path(url='/', clear=True, view=LoginPage().view),
             path(url='/signup', clear=False, view=SignupPage().view),
         ]

@@ -4,6 +4,7 @@ from utils.style import *
 
 
 class LoginPage:
+    # add email input with styles
     email_input = ft.Container(
         content=ft.TextField(label='Email',
                              bgcolor=secondaryBgColor,
