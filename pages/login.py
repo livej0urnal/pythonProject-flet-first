@@ -12,7 +12,8 @@ class LoginPage:
                              border=ft.InputBorder.NONE,
                              filled=True,
                              color=secondaryFontColor),
-        border_radius=15
+        border_radius=15,
+        padding=10
     )
 
     password_input = ft.Container(
@@ -22,7 +23,8 @@ class LoginPage:
                              border=ft.InputBorder.NONE,
                              filled=True,
                              color=secondaryFontColor),
-        border_radius=15
+        border_radius=15,
+        padding=10
     )
 
     def view(self, page: ft.Page, params: Params, basket: Basket):
@@ -55,11 +57,11 @@ class LoginPage:
                                     self.password_input,
                                     ft.Container(
                                         ft.Text('Login', color=defaultFontColor, font_family="gotham"),
-                                        alignment=ft.alignment.center, height=40, bgcolor=hoverBgColor,
+                                        alignment=ft.alignment.center, height=40, bgcolor=hoverBgColor, padding=10
                                     ),
                                     ft.Container(
                                         ft.Text('Create Account', color=defaultFontColor, font_family="gotham"),
-                                        on_click=lambda e: page.go('/signup')
+                                        on_click=lambda e: page.go('/signup'), padding=10
                                     )
                                 ]
                             )
