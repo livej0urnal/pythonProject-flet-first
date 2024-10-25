@@ -36,7 +36,7 @@ class LoginPage:
                                 alignment=ft.MainAxisAlignment.CENTER,
                                 horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                                 controls=[
-                                    ft.Text('Hello Administrator',
+                                    ft.Text('Hello User',
                                             color=defaultFontColor,
                                             size=25,
                                             weight=ft.FontWeight.NORMAL,
