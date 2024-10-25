@@ -1,3 +1,4 @@
+# Basic styles for app
 defaultBgColor = '#02091d'
 defaultFontColor = '#ffffff'
 defaultFontSize = '16'

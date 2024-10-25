@@ -1,6 +1,8 @@
 import flet as ft
 from router import Router
 
+# This is block starting our
+# app
 def main(page: ft.Page):
     Router(page)
 
