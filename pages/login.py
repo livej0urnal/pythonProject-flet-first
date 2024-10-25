@@ -24,6 +24,26 @@ class LoginPage:
         return ft.View(
             "/",
             controls=[
-                self.email_input,
-            ]
+                ft.Row(
+                    expand=True,
+                    controls=[
+                        ft.Container(
+                            expand=2,
+                            padding=ft.padding.all(40),
+                            content=ft.Column(
+                                alignment=ft.MainAxisAlignment.CENTER,
+                                horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                                controls=[
+                                    ft.Text('Hello',
+                                            color=defaultFontColor,
+                                            size=25,
+                                            weight=ft.FontWeight.NORMAL)
+                                ]
+                            )
+                        )
+                    ]
+                )
+            ],
+            bgcolor=defaultBgColor,
+            padding=0
         )
