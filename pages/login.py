@@ -15,6 +15,16 @@ class LoginPage:
         border_radius=15
     )
 
+    password_input = ft.Container(
+        content=ft.TextField(label='Password',
+                             password=True, can_reveal_password=True,
+                             bgcolor=secondaryBgColor,
+                             border=ft.InputBorder.NONE,
+                             filled=True,
+                             color=secondaryFontColor),
+        border_radius=15
+    )
+
     def view(self, page: ft.Page, params: Params, basket: Basket):
         page.title = 'Login Page'
         page.window.width = defaultWidthWindow
@@ -40,7 +50,9 @@ class LoginPage:
                                             color=defaultFontColor,
                                             size=25,
                                             weight=ft.FontWeight.NORMAL,
-                                            font_family='gotham')
+                                            font_family='gotham'),
+                                    self.email_input,
+                                    self.password_input
                                 ]
                             )
                         ),
@@ -54,7 +66,7 @@ class LoginPage:
                                 controls=[
                                     ft.Icon(name=ft.icons.LOCK_PERSON_ROUNDED,
                                             color=loginFontColor,
-                                            size=140,),
+                                            size=140, ),
                                     ft.Text('Login',
                                             color=loginFontColor,
                                             size=25,
