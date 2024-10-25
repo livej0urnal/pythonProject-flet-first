@@ -48,7 +48,7 @@ class SignupPage:
                                 alignment=ft.MainAxisAlignment.CENTER,
                                 horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                                 controls=[
-                                    ft.Text('Complete Form',
+                                    ft.Text('Signup Form',
                                             color=defaultFontColor,
                                             size=25,
                                             weight=ft.FontWeight.NORMAL,
@@ -56,7 +56,7 @@ class SignupPage:
                                     self.email_input,
                                     self.password_input,
                                     ft.Container(
-                                        ft.Text('Login', color=defaultFontColor, font_family="gotham"),
+                                        ft.Text('Signup', color=defaultFontColor, font_family="gotham"),
                                         alignment=ft.alignment.center, height=40, bgcolor=hoverBgColor, padding=10
                                     ),
                                 ]
@@ -64,7 +64,7 @@ class SignupPage:
                         ),
                         ft.Container(
                             expand=3,
-                            image_src='images/bg_login.jpg',
+                            image_src='images/bg_signup.jpg',
                             image_fit=ft.ImageFit.COVER,
                             content=ft.Column(
                                 alignment=ft.MainAxisAlignment.CENTER,
@@ -73,7 +73,7 @@ class SignupPage:
                                     ft.Icon(name=ft.icons.LOCK_PERSON_ROUNDED,
                                             color=loginFontColor,
                                             size=140, ),
-                                    ft.Text('Login',
+                                    ft.Text('Signup Form',
                                             color=loginFontColor,
                                             size=25,
                                             weight=ft.FontWeight.BOLD)
