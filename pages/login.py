@@ -42,6 +42,10 @@ class LoginPage:
                             )
                         )
                     ]
+                ),
+                ft.Container(
+                    expand=3,
+                    image_src='images/bg_login.jpg',
                 )
             ],
             bgcolor=defaultBgColor,
