@@ -52,7 +52,15 @@ class LoginPage:
                                             weight=ft.FontWeight.NORMAL,
                                             font_family='gotham'),
                                     self.email_input,
-                                    self.password_input
+                                    self.password_input,
+                                    ft.Container(
+                                        ft.Text('Login', color=defaultFontColor, font_family="gotham"),
+                                        alignment=ft.alignment.center, height=40, bgcolor=hoverBgColor,
+                                    ),
+                                    ft.Container(
+                                        ft.Text('Create Account', color=defaultFontColor, font_family="gotham"),
+                                        on_click=lambda e: page.go('/signup')
+                                    )
                                 ]
                             )
                         ),
