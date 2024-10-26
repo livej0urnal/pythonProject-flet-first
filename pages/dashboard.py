@@ -25,7 +25,7 @@ class DashboardPage:
             padding=ft.padding.symmetric(17, 13),
             content=ft.Row(
                 controls=[
-                    ft.Image(src='/images/logo.png', width=100, height=50, fit=ft.ImageFit.FILL),
+                    ft.Image(src='/images/logo.png', width=150, height=150, fit=ft.ImageFit.FILL),
                     ft.Text('Dashboard', expand=True, color=defaultBgColor, font_family='gotham', size=16),
                 ],
                 alignment=ft.MainAxisAlignment.START,
