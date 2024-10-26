@@ -46,6 +46,11 @@ class DashboardPage:
         def input_form(label):
             return ft.TextField(label=f'{label}',bgcolor=secondaryBgColor,border=ft.InputBorder.NONE,filled=True,color=secondaryFontColor)
 
+        # style disable input
+        def input_disabled(value):
+            return ft.TextField(value=f'{value}', bgcolor=secondaryBgColor, border=ft.InputBorder.NONE, filled=True, disabled=True,
+                                color=secondaryFontColor)
+
         # style menu
         style_menu = ft.ButtonStyle(color={ft.ControlState.HOVERED: ft.colors.WHITE,
                                            ft.ControlState.DEFAULT: menuFontColor},
