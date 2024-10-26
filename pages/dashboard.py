@@ -120,10 +120,15 @@ class DashboardPage:
             token_input = ft.Container(content=input_disabled(self.token_bot), border_radius=15)
 
         # channel input
-        channel_input = ft.Container(
-            content=input_form('Channel ID'),
-            border_radius=15
-        )
+        if not self.channel_link and not self.check_channel:
+            channel_input = ft.Container(
+                content=input_form('Channel ID'),
+                border_radius=15
+            )
+        elif self.check_channel:
+            channel_input = ft.Container(content=input_disabled(self.check_channel), border_radius=15)
+        else:
+            channel_input = ft.Container(content=input_disabled(self.channel_link), border_radius=15)
 
         # save data
         send_btn = ft.ElevatedButton('Save', bgcolor=hoverBgColor, color=defaultFontColor, icon='settings', on_click=lambda e: save_settings(e))
