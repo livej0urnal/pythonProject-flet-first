@@ -78,6 +78,7 @@ class SignupPage:
                     time.sleep(1)
                     self.error_field.size=0
                     self.email_input.content.bgcolor = inputBgColor
+                    self.error_field.update()
                     self.email_input.update()
             else:
                 self.error_field.value = 'All fields required.'
