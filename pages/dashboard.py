@@ -37,7 +37,8 @@ class DashboardPage:
             padding=ft.padding.symmetric(0, 13),
             content=ft.Column(
                 controls=[
-                    ft.Text('Menu', color=secondaryBgColor, font_family='gotham', size=16),
+                    ft.Text('Menu', color=menuFontColor, font_family='gotham', size=12),
+                    ft.TextButton('Home', icon='space_')
                 ]
             )
         )
