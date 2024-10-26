@@ -1,12 +1,13 @@
 import flet as ft
 from flet_route import Params, Basket
 from utils.style import *
-from dotenv import set_key
+from dotenv import set_key, load_dotenv
 from pathlib import Path
 import os
 
 
 class DashboardPage:
+    load_dotenv()
     AUTH_USER = False
     check_token = ''
     check_channel = ''
