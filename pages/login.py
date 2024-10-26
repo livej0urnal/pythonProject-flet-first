@@ -45,7 +45,7 @@ class LoginPage:
                                    on_click=lambda e: page.go('/signup'), padding=10)
         #function authorization
         def authorization(e):
-            db = Database
+            db = Database()
             email = self.email_input.content.value
             password = hash_password(self.password_input.content.value)
             if db.authorization(email, password):
