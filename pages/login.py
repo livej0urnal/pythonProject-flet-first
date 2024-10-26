@@ -53,7 +53,8 @@ class LoginPage:
                 page.go('/dashboard')
             else:
                 self.error_message.open = True
-                self.error_message.update()
+                page.overlay.append(self.error_message)
+                page.update()
 
         return ft.View(
             "/",
