@@ -25,11 +25,7 @@ class DashboardPage:
 
         # function for create inputs
         def input_form(label):
-            return ft.TextField(label=f'{label}',
-                                bgcolor=secondaryBgColor,
-                                border=ft.InputBorder.NONE,
-                                filled=True,
-                                color=secondaryFontColor)
+            return ft.TextField(label=f'{label}',bgcolor=secondaryBgColor,border=ft.InputBorder.NONE,filled=True,color=secondaryFontColor)
 
         # style menu
         style_menu = ft.ButtonStyle(color={ft.ControlState.HOVERED: ft.colors.WHITE,
@@ -56,8 +52,10 @@ class DashboardPage:
             content=ft.Column(
                 controls=[
                     ft.Text('Navigation', color=menuFontColor, font_family='gotham', size=14),
-                    ft.TextButton('Home', icon='space_dashboard_rounded', style=style_menu),
-                    ft.TextButton('Post', icon='post_add', style=style_menu),
+                    ft.TextButton('Home', icon='space_dashboard_rounded', style=style_menu,
+                                  on_click=lambda e: page('/dashboard')),
+                    ft.TextButton('Post', icon='post_add', style=style_menu,
+                                  on_click=lambda e: page('/post')),
                     ft.TextButton('Test', icon='verified_user', style=style_menu),
                 ]
             )
