@@ -30,7 +30,7 @@ class LoginPage:
     )
 
     error_message = ft.SnackBar(
-        content=ft.TextField('Error authorization! Check fields', color=loginFontColor),
+        content=ft.TextField('Authorization error! Check that your email and password are correct!', color=loginFontColor),
         bgcolor=inputBgErrorColor,
     )
 
