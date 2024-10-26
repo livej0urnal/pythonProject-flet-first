@@ -110,10 +110,7 @@ class DashboardPage:
 
         # token input
         if not self.token_bot and not self.check_token:
-            token_input = ft.Container(
-                content=input_form('Token'),
-                border_radius=15
-            )
+            token_input = ft.Container(content=input_form('Token'),border_radius=15)
         elif self.check_token:
             token_input = ft.Container(content=input_disabled(self.check_token), border_radius=15)
         else:
@@ -121,10 +118,7 @@ class DashboardPage:
 
         # channel input
         if not self.channel_link and not self.check_channel:
-            channel_input = ft.Container(
-                content=input_form('Channel ID'),
-                border_radius=15
-            )
+            channel_input = ft.Container(content=input_form('Channel ID'),border_radius=15)
         elif self.check_channel:
             channel_input = ft.Container(content=input_disabled(self.check_channel), border_radius=15)
         else:
