@@ -29,6 +29,11 @@ class LoginPage:
         padding=5
     )
 
+    error_message = ft.SnackBar(
+        content=ft.TextField(label='Error authorization! Check fields',),
+        bgcolor=inputBgErrorColor,
+    )
+
     def view(self, page: ft.Page, params: Params, basket: Basket):
         page.title = 'Login Page'
         page.window.width = defaultWidthWindow
@@ -43,7 +48,12 @@ class LoginPage:
             db = Database
             email = self.email_input.content.value
             password = hash_password(self.password_input.content.value)
-
+            if db.authorization(email, password):
+                page.session.set('auth_user', True)
+                page.go('/dashboard')
+            else:
+                self.error_message.open = True
+                self.error_message.update()
 
         return ft.View(
             "/",
