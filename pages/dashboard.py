@@ -55,12 +55,12 @@ class DashboardPage:
         # start header
         header = ft.Container(
             content=ft.Row(controls=[
-                ft.Text('Dashboard', color=defaultBgColor, font_family='gotham', size=18),
+                ft.Text('Dashboard', color=defaultFontColor, font_family='gotham', size=18),
                 ft.Row(
                     controls=[
                         ft.CircleAvatar(
                             foreground_image_src='images/avatar.png',
-                            content=ft.Text('Avatar')
+                            content=ft.Text('A')
                         ),
                         ft.IconButton(
                             icon=ft.icons.NOTIFICATIONS_ROUNDED,
@@ -94,7 +94,7 @@ class DashboardPage:
                         ft.Container(
                             expand=4,
                             padding=ft.padding.symmetric(15, 10),
-                            content=ft.Column(header)
+                            content=ft.Column([header])
                         )
                     ]
                 )
