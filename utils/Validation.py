@@ -11,7 +11,7 @@ class Validation:
             return False
         if not any(c.isdigit() for c in password):
             return False
-        if not re.search("[@_!#$%^&*()<>/\|}{~:]", password):
+        if not re.search("[@_!#$%^&*()<>/|}{~:]", password):
             return False
 
         return True
