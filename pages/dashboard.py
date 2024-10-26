@@ -125,10 +125,10 @@ class DashboardPage:
             channel_input = ft.Container(content=input_disabled(self.channel_link), border_radius=15)
 
         # save data
-        if not self.token_bot and not self.channel_link:
+        if not self.token_bot or not self.channel_link:
             send_btn = ft.ElevatedButton('Save', bgcolor=hoverBgColor, color=defaultFontColor, icon='settings', on_click=lambda e: save_settings(e))
         else:
-            send_btn = ft.ElevatedButton('Saved succes', bgcolor=inputBgColor, color=defaultFontColor, icon='save',
+            send_btn = ft.ElevatedButton('Saved success', bgcolor=inputBgColor, color=defaultFontColor, icon='save',
                                          on_click=lambda e: save_settings(e), disabled=True)
 
         return ft.View(
