@@ -39,5 +39,5 @@ class Database:
 
     #method login
     def authorization(self, email, password):
-        result = self.session.execute(select(self.adminUser).where(and_(self.adminUser.c.email == email, and_(self.adminUser.c.password == password))))
+        result = self.session.execute(select(self.adminUser).where(and_(self.adminUser.c.email == email, self.adminUser.c.password == password)))
         return result.fetchone()
