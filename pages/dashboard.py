@@ -24,7 +24,7 @@ class DashboardPage:
                                            ft.ControlState.DEFAULT: menuFontColor},
                                     icon_size=14,
                                     overlay_color=hoverBgColor,
-                                    shadow_color=hoverBgColor)
+                                    shadow_color=hoverBgColor,)
 
         #sidebar view
         logo = ft.Container(
