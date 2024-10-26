@@ -1,5 +1,5 @@
 import time
-
+from utils.Databes import Database
 import flet as ft
 from flet_core.colors import with_opacity
 from flet_route import Params, Basket
@@ -70,6 +70,7 @@ class SignupPage:
             password_value = self.password_input.content.value
             confpassword_value = self.confirm_password_input.content.value
             if email_value and login_value and password_value and confpassword_value:
+                db = Database()
                 if not self.validation.is_valid_email(email_value):
                     self.email_input.content.bgcolor = inputBgErrorColor
                     self.error_field.value = 'The email field does not match the format'

@@ -25,3 +25,4 @@ class Database:
     def check_email(self, email):
         result = self.session.execute(select(self.adminUser).where(self.adminUser.c.email == email))
         return result
+
