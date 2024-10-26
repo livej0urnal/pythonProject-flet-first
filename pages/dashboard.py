@@ -20,6 +20,17 @@ class DashboardPage:
                                 filled=True,
                                 color=secondaryFontColor)
 
+        #sidebar view
+        logo = ft.Container(
+            padding=ft.padding.symmetric(17, 13),
+            content=ft.Row(
+                controls=[
+                    ft.Image(src='/images/logo.png', width=45, height=32, fit=ft.ImageFit.FILL),
+                    ft.Text('Dashboard', expand=True, color=defaultBgColor, font_family='gotham', size=16),
+                ]
+            )
+        )
+
         return ft.View(
             '/dashboard',
             controls=[
