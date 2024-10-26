@@ -75,10 +75,15 @@ class SignupPage:
                                             size=25,
                                             weight=ft.FontWeight.NORMAL,
                                             font_family='gotham'),
+                                    self.email_input,
+                                    self.login_input,
+                                    self.password_input,
+                                    self.confirm_password_input,
                                     ft.Container(
                                         ft.Text('Signup', color=defaultFontColor, font_family="gotham"),
                                         alignment=ft.alignment.center, height=40, bgcolor=hoverBgColor, padding=10
                                     ),
+
                                 ]
                             )
                         ),
