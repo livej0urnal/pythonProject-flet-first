@@ -5,6 +5,7 @@ from flet_core.colors import with_opacity
 from flet_route import Params, Basket
 from utils.style import *
 from utils.Validation import Validation
+from utils.function import hash_password
 
 
 class SignupPage:
@@ -125,7 +126,7 @@ class SignupPage:
                     self.error_field.update()
                 # if all params correct redirect to login page
                 else:
-                    db.insert_user(login_value, email_value, password_value)
+                    db.insert_user(login_value, email_value, hash_password(password_value))
                     self.error_field.value = 'Complete signup'
                     self.error_field.size = 12
                     self.error_field.color = ft.colors.GREEN
