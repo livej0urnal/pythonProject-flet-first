@@ -23,6 +23,10 @@ class DashboardPage:
         page.window.min_height = 400
         page.fonts = {"gotham": "fonts/font.ttf"}
 
+        #save data function
+        def save_setting(e):
+            pass
+
         # function for create inputs
         def input_form(label):
             return ft.TextField(label=f'{label}',bgcolor=secondaryBgColor,border=ft.InputBorder.NONE,filled=True,color=secondaryFontColor)
@@ -53,9 +57,9 @@ class DashboardPage:
                 controls=[
                     ft.Text('Navigation', color=menuFontColor, font_family='gotham', size=14),
                     ft.TextButton('Home', icon='space_dashboard_rounded', style=style_menu,
-                                  on_click=lambda e: page('/dashboard')),
+                                  on_click=lambda e: page.go('/dashboard')),
                     ft.TextButton('Post', icon='post_add', style=style_menu,
-                                  on_click=lambda e: page('/post')),
+                                  on_click=lambda e: page.go('/post')),
                     ft.TextButton('Test', icon='verified_user', style=style_menu),
                 ]
             )
@@ -96,7 +100,7 @@ class DashboardPage:
         )
 
         # save data
-        send_btn = ft.ElevatedButton('Save', bgcolor=hoverBgColor, color=defaultFontColor, icon='settings')
+        send_btn = ft.ElevatedButton('Save', bgcolor=hoverBgColor, color=defaultFontColor, icon='settings', on_click=lambda e: save_setting(e))
 
         return ft.View(
             '/dashboard',
