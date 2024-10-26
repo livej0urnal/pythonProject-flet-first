@@ -48,7 +48,6 @@ class SignupPage:
         padding=5
     )
 
-
     def view(self, page: ft.Page, params: Params, basket: Basket):
         page.title = 'Signup Page'
         page.window.width = defaultWidthWindow
