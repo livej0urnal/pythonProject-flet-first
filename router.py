@@ -2,6 +2,7 @@ import flet as ft
 from flet_route import Routing, path
 from pages.login import LoginPage
 from pages.signup import SignupPage
+from pages.dashboard import DashboardPage
 
 class Router:
     def __init__(self, page: ft.Page):
