@@ -95,6 +95,7 @@ class SignupPage:
                     self.email_input.content.bgcolor = inputBgColor
                     self.error_field.update()
                     self.email_input.update()
+                # validate password input
                 elif not self.validation.is_valid_password(password_value):
                     self.error_field.value = 'The password field does not match the format (one symbol and letter required)'
                     self.error_field.size=12
@@ -102,6 +103,7 @@ class SignupPage:
                     time.sleep(1)
                     self.error_field.size = 0
                     self.error_field.update()
+                # check password === check_password_input
                 elif password_value != confpassword_value:
                     self.error_field.value = 'Passwords don\'t match'
                     self.error_field.size=12
@@ -109,6 +111,7 @@ class SignupPage:
                     time.sleep(1)
                     self.error_field.size = 0
                     self.error_field.update()
+                # if all params correct redirect to login page
                 else:
                     self.error_field.value = 'Complete signup'
                     self.error_field.size = 12
