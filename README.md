@@ -9,4 +9,7 @@ Also read the comments inside the files for a better understanding.</p>
 <ul  style="font-size: 19px;">
     <li>pip install flet</li>
     <li>pip install flet-router</li>
+    <li>pip install python-dotenv</li>
+    <li>pip install pymysql</li>
+    <li>pip install sqlalchemy</li>
 </ul>
