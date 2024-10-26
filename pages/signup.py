@@ -10,7 +10,7 @@ from utils.Validation import Validation
 class SignupPage:
     validation = Validation()
 
-    error_field = ft.Text('', color='red')
+    error_field = ft.Text('', color='red', font_family="gotham")
     # form elements signup
     email_input = ft.Container(
         content=ft.TextField(label='Email',
