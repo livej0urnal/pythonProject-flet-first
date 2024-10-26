@@ -73,6 +73,22 @@ class DashboardPage:
                 )
             ], alignment=ft.MainAxisAlignment.SPACE_BETWEEN),
         )
+
+        # token input
+        token_input = ft.Container(
+            content=input_form('Token'),
+            border_radius=15
+        )
+
+        # channel input
+        channel_input = ft.Container(
+            content=input_form('Channel ID'),
+            border_radius=15
+        )
+
+        # save data
+        send_btn = ft.ElevatedButton('Save', bgcolor=hoverBgColor, color=defaultFontColor, icon='settings')
+
         return ft.View(
             '/dashboard',
             controls=[
@@ -90,7 +106,7 @@ class DashboardPage:
                             ),
                             bgcolor=secondaryBgColor,
                         ),
-                        #body right
+                        # body right
                         ft.Container(
                             expand=4,
                             padding=ft.padding.symmetric(15, 10),
