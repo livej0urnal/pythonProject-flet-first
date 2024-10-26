@@ -98,10 +98,10 @@ class SignupPage:
                 else:
                     self.error_field.value = 'Complete signup'
                     self.error_field.size = 12
+                    self.error_field.color = ft.colors.GREEN
                     self.error_field.update()
-                    time.sleep(1)
-                    self.error_field.size = 0
-                    self.error_field.update()
+                    time.sleep(4)
+                    page.go('/')
 
             else:
                 self.error_field.value = 'All fields required.'
