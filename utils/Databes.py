@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, Table, Column, Integer, String, MetaData, Select, select, insert, delete, update
+from sqlalchemy import create_engine, Table, Column, Integer, String, MetaData, Select, select, insert, delete, update, and_
 from pymysql import *
 from dotenv import load_dotenv
 from sqlalchemy.orm import sessionmaker, declarative_base
@@ -36,3 +36,8 @@ class Database:
     def insert_user(self, login, email, password):
         self.session.execute(insert(self.adminUser).values(login=login, email=email, password=password))
         self.session.commit()
+
+    #method login
+    def authorization(self, email, password):
+        result = self.session.execute(select(self.adminUser).where(and_(self.adminUser.c.email == email, and_(self.adminUser.c.password == password))))
+        return result.fetchone()
