@@ -33,7 +33,7 @@ class DashboardPage:
             content=ft.Row(
                 controls=[
                     ft.Image(src='/images/logo.png', width=150, height=50, fit=ft.ImageFit.FILL),
-                    ft.Text('Dashboard', expand=True, color=defaultBgColor, font_family='gotham', size=16),
+                    # ft.Text('Dashboard', expand=True, color=defaultFontColor, font_family='gotham', size=16),
                 ],
                 alignment=ft.MainAxisAlignment.START,
                 vertical_alignment=ft.CrossAxisAlignment.CENTER,
