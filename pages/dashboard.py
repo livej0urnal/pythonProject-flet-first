@@ -24,8 +24,23 @@ class DashboardPage:
         page.fonts = {"gotham": "fonts/font.ttf"}
 
         #save data function
-        def save_setting(e):
-            pass
+        def save_settings(e):
+            token = token_input.content.value
+            channel = channel_input.content.value
+            set_key(dotenv_path=self.env_file_path, key_to_set='TOKEN_BOT', value_to_set=token)
+            set_key(dotenv_path=self.env_file_path, key_to_set='CHANNEL', value_to_set=channel)
+            token_input.disabled = True
+            channel_input.disabled = True
+            page.session.set('TOKEN', token)
+            page.session.set('CHANNEL', channel)
+            self.token_bot = page.session.get('TOKEN_BOT')
+            self.channel_link = page.session.get('CHANNEL')
+            send_btn.text = 'Save success'
+            send_btn.disabled = True
+            send_btn.update()
+            token_input.update()
+            channel_input.update()
+            page.update()
 
         # function for create inputs
         def input_form(label):
@@ -100,7 +115,7 @@ class DashboardPage:
         )
 
         # save data
-        send_btn = ft.ElevatedButton('Save', bgcolor=hoverBgColor, color=defaultFontColor, icon='settings', on_click=lambda e: save_setting(e))
+        send_btn = ft.ElevatedButton('Save', bgcolor=hoverBgColor, color=defaultFontColor, icon='settings', on_click=lambda e: save_settings(e))
 
         return ft.View(
             '/dashboard',
