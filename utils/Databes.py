@@ -1,8 +1,9 @@
-from sqlalchemy import create_engine, Table, Column, Integer, String, MetaData, Select
+from sqlalchemy import create_engine, Table, Column, Integer, String, MetaData, Select, select
 from pymysql import *
 from dotenv import load_dotenv
 from sqlalchemy.orm import sessionmaker, declarative_base
 import os
+
 
 class Database:
     def __init__(self):
@@ -22,4 +23,5 @@ class Database:
         self.session = self.Session()
 
     def check_email(self, email):
-        result = self.session
+        result = self.session.execute(select(self.adminUser).where(self.adminUser.c.email == email))
+        return result
