@@ -59,7 +59,7 @@ class DashboardPage:
                 ft.Row(
                     controls=[
                         ft.CircleAvatar(
-                            foreground_image_src='images/avatar.jpg',
+                            foreground_image_src='/images/avatar.png',
                             content=ft.Text('A')
                         ),
                         ft.IconButton(
