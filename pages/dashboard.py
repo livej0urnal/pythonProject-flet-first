@@ -19,6 +19,12 @@ class DashboardPage:
                                 border=ft.InputBorder.NONE,
                                 filled=True,
                                 color=secondaryFontColor)
+        #style menu
+        style_menu = ft.ButtonStyle(color={ft.ControlState.HOVERED: ft.colors.WHITE,
+                                           ft.ControlState.DEFAULT: menuFontColor},
+                                    icon_size=14,
+                                    overlay_color=hoverBgColor,
+                                    shadow_color=hoverBgColor)
 
         #sidebar view
         logo = ft.Container(
@@ -38,7 +44,8 @@ class DashboardPage:
             content=ft.Column(
                 controls=[
                     ft.Text('Menu', color=menuFontColor, font_family='gotham', size=12),
-                    ft.TextButton('Home', icon='space_')
+                    ft.TextButton('Home', icon='space_dashboard_rounded',
+                                  style=style_menu)
                 ]
             )
         )
