@@ -96,7 +96,7 @@ class SignupPage:
                     self.error_field.update()
                     self.email_input.update()
                 # check login in database
-                elif db.check_login(email_value):
+                elif db.check_login(login_value):
                     self.login_input.content.bgcolor = inputBgErrorColor
                     self.error_field.value = 'This login already exists'
                     self.error_field.size = 12
