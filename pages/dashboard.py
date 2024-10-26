@@ -9,8 +9,6 @@ import os
 class DashboardPage:
     load_dotenv()
     AUTH_USER = False
-    check_token = ''
-    check_channel = ''
     env_file_path = Path('.') / '.env'
     token_bot = os.getenv('TOKEN_BOT')
     channel_link = os.getenv('CHANNEL')
@@ -109,18 +107,18 @@ class DashboardPage:
         )
 
         # token input
-        if not self.token_bot and not self.check_token:
+        if not self.token_bot and not page.session.get('TOKEN'):
             token_input = ft.Container(content=input_form('Token'),border_radius=15)
-        elif self.check_token:
-            token_input = ft.Container(content=input_disabled(self.check_token), border_radius=15)
+        elif page.session.get('TOKEN'):
+            token_input = ft.Container(content=input_disabled(page.session.get('TOKEN')), border_radius=15)
         else:
             token_input = ft.Container(content=input_disabled(self.token_bot), border_radius=15)
 
         # channel input
-        if not self.channel_link and not self.check_channel:
+        if not self.channel_link and not page.session.get('CHANNEL'):
             channel_input = ft.Container(content=input_form('Channel ID'),border_radius=15)
-        elif self.check_channel:
-            channel_input = ft.Container(content=input_disabled(self.check_channel), border_radius=15)
+        elif page.session.get('CHANNEL'):
+            channel_input = ft.Container(content=input_disabled(page.session.get('CHANNEL')), border_radius=15)
         else:
             channel_input = ft.Container(content=input_disabled(self.channel_link), border_radius=15)
 
