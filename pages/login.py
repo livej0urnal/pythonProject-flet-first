@@ -75,6 +75,7 @@ class LoginPage:
                                             font_family='gotham'),
                                     self.email_input,
                                     self.password_input,
+                                    self.error_message,
                                     ft.Container(
                                         ft.Text('Login', color=defaultFontColor, font_family="gotham"),
                                         alignment=ft.alignment.center, height=40, bgcolor=hoverBgColor, padding=10,
