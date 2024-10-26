@@ -45,7 +45,11 @@ class DashboardPage:
                 controls=[
                     ft.Text('Menu', color=menuFontColor, font_family='gotham', size=12),
                     ft.TextButton('Home', icon='space_dashboard_rounded',
-                                  style=style_menu)
+                                  style=style_menu),
+                    ft.TextButton('Post', icon='post_add',
+                                  style=style_menu),
+                    ft.TextButton('Test', icon='verified_user',
+                                  style=style_menu),
                 ]
             )
         )
