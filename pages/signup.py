@@ -95,6 +95,13 @@ class SignupPage:
                     time.sleep(1)
                     self.error_field.size = 0
                     self.error_field.update()
+                else:
+                    self.error_field.value = 'Complete signup'
+                    self.error_field.size = 12
+                    self.error_field.update()
+                    time.sleep(1)
+                    self.error_field.size = 0
+                    self.error_field.update()
 
             else:
                 self.error_field.value = 'All fields required.'
