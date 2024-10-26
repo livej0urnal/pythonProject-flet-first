@@ -65,6 +65,7 @@ class SignupPage:
             login_value = self.login_input.content.value
             password_value = self.password_input.content.value
             confpassword_value = self.confirm_password_input.content.value
+            print(email_value, login_value, password_value, confpassword_value)
 
         return ft.View(
             "/",
