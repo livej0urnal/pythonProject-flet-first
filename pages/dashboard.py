@@ -27,13 +27,31 @@ class DashboardPage:
                 controls=[
                     ft.Image(src='/images/logo.png', width=45, height=32, fit=ft.ImageFit.FILL),
                     ft.Text('Dashboard', expand=True, color=defaultBgColor, font_family='gotham', size=16),
-                ]
+                ],
+                alignment=ft.MainAxisAlignment.START,
+                vertical_alignment=ft.CrossAxisAlignment.CENTER,
             )
         )
 
         return ft.View(
             '/dashboard',
             controls=[
-                ft.Container(content=input_form('Token bot'))
-            ]
+                ft.Row(
+                    expand=True,
+                    controls=[
+                        #left
+                        ft.Container(
+                            expand=1,
+                            content=ft.Column(
+                                controls=[
+                                    logo
+                                ]
+                            ),
+                            bgcolor=secondaryBgColor,
+                        )
+                    ]
+                )
+            ],
+            bgcolor=defaultBgColor,
+            padding=0
         )
