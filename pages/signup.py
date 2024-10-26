@@ -1,3 +1,5 @@
+import time
+
 import flet as ft
 from flet_core.colors import with_opacity
 from flet_route import Params, Basket
@@ -61,12 +63,20 @@ class SignupPage:
         page.fonts = {"gotham": "fonts/font.ttf"}
         login_link = ft.Container(ft.Text('Back to Login', color=defaultFontColor, font_family="gotham"),
                                   on_click=lambda e: page.go("/"), padding=10)
+
         def signup(e):
             email_value = self.email_input.content.value
             login_value = self.login_input.content.value
             password_value = self.password_input.content.value
             confpassword_value = self.confirm_password_input.content.value
-            print(email_value, login_value, password_value, confpassword_value)
+            if email_value and login_value and password_value and confpassword_value:
+
+            else:
+                self.error_field.value = 'All fields required.'
+                self.error_field.update()
+                time.sleep(1)
+                self.error_field.size = 0
+                self.error_field.update()
 
         return ft.View(
             "/",
@@ -125,6 +135,3 @@ class SignupPage:
             bgcolor=defaultBgColor,
             padding=0
         )
-
-
-
