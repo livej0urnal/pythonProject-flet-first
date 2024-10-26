@@ -10,3 +10,5 @@ loginFontColor = '#F5FFFA'
 
 defaultWidthWindow = '1000'
 defaultHeightWindow = '600'
+
+inputBgErrorColor = '#291919'

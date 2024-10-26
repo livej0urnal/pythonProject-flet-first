@@ -70,7 +70,15 @@ class SignupPage:
             password_value = self.password_input.content.value
             confpassword_value = self.confirm_password_input.content.value
             if email_value and login_value and password_value and confpassword_value:
-
+                if not self.validation.is_valid_email(email_value):
+                    self.email_input.content.bgcolor = inputBgErrorColor
+                    self.error_field.value = 'The email field does not match the format'
+                    self.email_input.update()
+                    self.error_field.update()
+                    time.sleep(1)
+                    self.error_field.size=0
+                    self.email_input.content.bgcolor = inputBgColor
+                    self.email_input.update()
             else:
                 self.error_field.value = 'All fields required.'
                 self.error_field.update()
