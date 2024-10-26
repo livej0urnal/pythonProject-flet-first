@@ -12,21 +12,22 @@ class DashboardPage:
         page.window.min_height = 400
         page.fonts = {"gotham": "fonts/font.ttf"}
 
-        #function for create inputs
+        # function for create inputs
         def input_form(label):
             return ft.TextField(label=f'{label}',
                                 bgcolor=secondaryBgColor,
                                 border=ft.InputBorder.NONE,
                                 filled=True,
                                 color=secondaryFontColor)
-        #style menu
+
+        # style menu
         style_menu = ft.ButtonStyle(color={ft.ControlState.HOVERED: ft.colors.WHITE,
                                            ft.ControlState.DEFAULT: menuFontColor},
                                     icon_size=14,
                                     overlay_color=hoverBgColor,
-                                    shadow_color=hoverBgColor,)
+                                    shadow_color=hoverBgColor, )
 
-        #sidebar view
+        # sidebar view
         logo = ft.Container(
             padding=ft.padding.symmetric(17, 13),
             content=ft.Row(
@@ -38,26 +39,47 @@ class DashboardPage:
                 vertical_alignment=ft.CrossAxisAlignment.CENTER,
             )
         )
-        #sidebar menu
+        # sidebar menu
         sidebar_menu = ft.Container(
             padding=ft.padding.symmetric(0, 13),
             content=ft.Column(
                 controls=[
                     ft.Text('Navigation', color=menuFontColor, font_family='gotham', size=14),
                     ft.TextButton('Home', icon='space_dashboard_rounded', style=style_menu),
-                    ft.TextButton('Post', icon='post_add',style=style_menu),
-                    ft.TextButton('Test', icon='verified_user',style=style_menu),
+                    ft.TextButton('Post', icon='post_add', style=style_menu),
+                    ft.TextButton('Test', icon='verified_user', style=style_menu),
                 ]
             )
         )
 
+        # start header
+        header = ft.Container(
+            content=ft.Row(controls=[
+                ft.Text('Dashboard', color=defaultBgColor, font_family='gotham', size=18),
+                ft.Row(
+                    controls=[
+                        ft.CircleAvatar(
+                            foreground_image_src='images/avatar.png',
+                            content=ft.Text('Avatar')
+                        ),
+                        ft.IconButton(
+                            icon=ft.icons.NOTIFICATIONS_ROUNDED,
+                            icon_size=20,
+                            hover_color=hoverBgColor,
+                            icon_color=defaultFontColor,
+                        )
+                    ],
+                    alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
+                )
+            ]),
+        )
         return ft.View(
             '/dashboard',
             controls=[
                 ft.Row(
                     expand=True,
                     controls=[
-                        #left
+                        # left
                         ft.Container(
                             expand=1,
                             content=ft.Column(
@@ -67,6 +89,12 @@ class DashboardPage:
                                 ]
                             ),
                             bgcolor=secondaryBgColor,
+                        ),
+                        #body right
+                        ft.Container(
+                            expand=4,
+                            padding=ft.padding.symmetric(15, 10),
+                            content=ft.Column(header)
                         )
                     ]
                 )
