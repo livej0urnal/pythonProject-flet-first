@@ -1,6 +1,8 @@
 import flet as ft
 from flet_core.colors import with_opacity
 from flet_route import Params, Basket
+from utils.function import hash_password
+from utils.Databes import Database
 from utils.style import *
 
 
@@ -37,6 +39,12 @@ class LoginPage:
         signup_link = ft.Container(ft.Text('Create Account', color=defaultFontColor, font_family="gotham"),
                                    on_click=lambda e: page.go('/signup'), padding=10)
 
+        def authorization(e):
+            db = Database
+            email = self.email_input.content.value
+            password = self.password_input.content.value
+
+
         return ft.View(
             "/",
             controls=[
@@ -59,7 +67,8 @@ class LoginPage:
                                     self.password_input,
                                     ft.Container(
                                         ft.Text('Login', color=defaultFontColor, font_family="gotham"),
-                                        alignment=ft.alignment.center, height=40, bgcolor=hoverBgColor, padding=10
+                                        alignment=ft.alignment.center, height=40, bgcolor=hoverBgColor, padding=10,
+                                        on_click=lambda e: authorization(e)
                                     ),
                                     signup_link
                                 ]
