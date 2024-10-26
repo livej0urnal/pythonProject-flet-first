@@ -66,7 +66,7 @@ class LoginPage:
                         ),
                         ft.Container(
                             expand=3,
-                            image_src='images/bg_login.jpg',
+                            image_src='images/bg_image.jpg',
                             image_fit=ft.ImageFit.COVER,
                             content=ft.Column(
                                 alignment=ft.MainAxisAlignment.CENTER,
