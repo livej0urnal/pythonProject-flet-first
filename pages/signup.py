@@ -125,6 +125,7 @@ class SignupPage:
                     self.error_field.update()
                 # if all params correct redirect to login page
                 else:
+                    db.insert_user(login_value, email_value, password_value)
                     self.error_field.value = 'Complete signup'
                     self.error_field.size = 12
                     self.error_field.color = ft.colors.GREEN
