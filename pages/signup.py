@@ -95,6 +95,18 @@ class SignupPage:
                     self.email_input.content.bgcolor = inputBgColor
                     self.error_field.update()
                     self.email_input.update()
+                # check login in database
+                elif db.check_login(email_value):
+                    self.login_input.content.bgcolor = inputBgErrorColor
+                    self.error_field.value = 'This login already exists'
+                    self.error_field.size = 12
+                    self.login_input.update()
+                    self.error_field.update()
+                    time.sleep(1)
+                    self.error_field.size = 0
+                    self.login_input.content.bgcolor = inputBgColor
+                    self.error_field.update()
+                    self.login_input.update()
                 # validate password input
                 elif not self.validation.is_valid_password(password_value):
                     self.error_field.value = 'The password field does not match the format (one symbol and letter required)'
