@@ -23,6 +23,6 @@ class DashboardPage:
         return ft.View(
             '/dashboard',
             controls=[
-                ft.Text('Hello, Dashboard!'),
+                ft.Container(content=input_form('Token bot'))
             ]
         )
