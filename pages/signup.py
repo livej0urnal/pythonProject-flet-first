@@ -73,6 +73,7 @@ class SignupPage:
                 if not self.validation.is_valid_email(email_value):
                     self.email_input.content.bgcolor = inputBgErrorColor
                     self.error_field.value = 'The email field does not match the format'
+                    self.error_field.size=12
                     self.email_input.update()
                     self.error_field.update()
                     time.sleep(1)
@@ -80,11 +81,27 @@ class SignupPage:
                     self.email_input.content.bgcolor = inputBgColor
                     self.error_field.update()
                     self.email_input.update()
+                elif not self.validation.is_valid_password(password_value):
+                    self.error_field.value = 'The password field does not match the format (one symbol and letter required)'
+                    self.error_field.size=12
+                    self.error_field.update()
+                    time.sleep(1)
+                    self.error_field.size = 0
+                    self.error_field.update()
+                elif password_value != confpassword_value:
+                    self.error_field.value = 'Passwords don\'t match'
+                    self.error_field.size=12
+                    self.error_field.update()
+                    time.sleep(1)
+                    self.error_field.size = 0
+                    self.error_field.update()
+
             else:
                 self.error_field.value = 'All fields required.'
+                self.error_field.size=12
                 self.error_field.update()
                 time.sleep(1)
-                self.error_field.size = 0
+                self.error_field.size=0
                 self.error_field.update()
 
         return ft.View(
