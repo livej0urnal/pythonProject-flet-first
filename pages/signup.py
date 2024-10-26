@@ -131,7 +131,7 @@ class SignupPage:
                     self.error_field.update()
                     time.sleep(4)
                     page.go('/')
-
+            # if length of field null
             else:
                 self.error_field.value = 'All fields required.'
                 self.error_field.size=12
