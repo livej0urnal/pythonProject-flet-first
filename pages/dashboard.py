@@ -59,7 +59,7 @@ class DashboardPage:
                 ft.Row(
                     controls=[
                         ft.CircleAvatar(
-                            foreground_image_src='images/avatar.png',
+                            foreground_image_src='images/avatar.jpg',
                             content=ft.Text('A')
                         ),
                         ft.IconButton(
@@ -71,7 +71,7 @@ class DashboardPage:
                     ],
                     alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
                 )
-            ]),
+            ], alignment=ft.MainAxisAlignment.SPACE_BETWEEN),
         )
         return ft.View(
             '/dashboard',
