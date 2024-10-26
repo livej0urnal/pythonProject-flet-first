@@ -32,6 +32,15 @@ class DashboardPage:
                 vertical_alignment=ft.CrossAxisAlignment.CENTER,
             )
         )
+        #sidebar menu
+        sidebar_menu = ft.Container(
+            padding=ft.padding.symmetric(0, 13),
+            content=ft.Column(
+                controls=[
+                    ft.Text('Menu', color=secondaryBgColor, font_family='gotham', size=16),
+                ]
+            )
+        )
 
         return ft.View(
             '/dashboard',

@@ -12,3 +12,4 @@ defaultWidthWindow = '1000'
 defaultHeightWindow = '600'
 
 inputBgErrorColor = '#291919'
+menuFontColor = '#949596'
