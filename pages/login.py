@@ -31,7 +31,7 @@ class LoginPage:
 
     error_message = ft.SnackBar(
         content=ft.TextField('Error authorization! Check fields'),
-        bgcolor=inputBgErrorColor,
+        bgcolor=loginFontColor,
     )
 
     def view(self, page: ft.Page, params: Params, basket: Basket):
