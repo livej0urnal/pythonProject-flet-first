@@ -110,7 +110,7 @@ class DashboardPage:
                         ft.Container(
                             expand=4,
                             padding=ft.padding.symmetric(15, 10),
-                            content=ft.Column([header, token_input, channel_input]),
+                            content=ft.Column([header, token_input, channel_input, send_btn]),
                         )
                     ]
                 )
