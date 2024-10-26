@@ -23,7 +23,7 @@ class DashboardPage:
         page.window.min_width = 900
         page.window.min_height = 400
         page.fonts = {"gotham": "fonts/font.ttf"}
-        print(self.token_bot)
+
         #save data function
         def save_settings(e):
             token = token_input.content.value
@@ -109,10 +109,15 @@ class DashboardPage:
         )
 
         # token input
-        token_input = ft.Container(
-            content=input_form('Token'),
-            border_radius=15
-        )
+        if not self.token_bot and not self.check_token:
+            token_input = ft.Container(
+                content=input_form('Token'),
+                border_radius=15
+            )
+        elif self.check_token:
+            token_input = ft.Container(content=input_disabled(self.check_token), border_radius=15)
+        else:
+            token_input = ft.Container(content=input_disabled(self.token_bot), border_radius=15)
 
         # channel input
         channel_input = ft.Container(
