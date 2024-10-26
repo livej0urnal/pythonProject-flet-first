@@ -8,6 +8,7 @@ from utils.Validation import Validation
 class SignupPage:
     validation = Validation()
 
+    error_field = ft.Text('', color='red')
     # form elements signup
     email_input = ft.Container(
         content=ft.TextField(label='Email',
@@ -85,6 +86,7 @@ class SignupPage:
                                             size=25,
                                             weight=ft.FontWeight.NORMAL,
                                             font_family='gotham'),
+                                    self.error_field,
                                     self.email_input,
                                     self.login_input,
                                     self.password_input,
