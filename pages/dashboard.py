@@ -22,7 +22,7 @@ class DashboardPage:
         page.window.min_width = 900
         page.window.min_height = 400
         page.fonts = {"gotham": "fonts/font.ttf"}
-
+        print(self.token_bot)
         #save data function
         def save_settings(e):
             token = token_input.content.value
