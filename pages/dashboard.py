@@ -1,10 +1,21 @@
 import flet as ft
 from flet_route import Params, Basket
 from utils.style import *
+from dotenv import set_key
+from pathlib import Path
+import os
 
 
 class DashboardPage:
+    AUTH_USER = False
+    check_token - ''
+    check_channel = ''
+    env_file_path = Path('.') / '.env'
+    token_bot = os.getenv('TOKEN_BOT')
+    channel_link = os.getenv('CHANNEL')
+
     def view(self, page: ft.Page, params: Params, basket: Basket):
+        self.AUTH_USER = page.session.get('auth_user')
         page.title = 'Dashboard Page'
         page.window.width = defaultWidthWindow
         page.window.height = defaultHeightWindow
