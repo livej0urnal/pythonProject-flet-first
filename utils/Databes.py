@@ -22,17 +22,17 @@ class Database:
         self.Session = sessionmaker(bind=self.engine)
         self.session = self.Session()
 
-    #check exists email in database
+    # check exists email in database
     def check_email(self, email):
         result = self.session.execute(select(self.adminUser).where(self.adminUser.c.email == email))
         return result.fetchone()
 
-    #method check login exists in db
+    # method check login exists in db
     def check_login(self, login):
         result = self.session.execute(select(self.adminUser).where(self.adminUser.c.login == login))
         return result.fetchone()
 
-    #method signup user
+    # method signup user
     def insert_user(self, login, email, password):
         self.session.execute(insert(self.adminUser).values(login=login, email=email, password=password))
         self.session.commit()
