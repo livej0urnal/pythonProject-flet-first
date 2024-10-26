@@ -8,7 +8,7 @@ import os
 
 class DashboardPage:
     AUTH_USER = False
-    check_token - ''
+    check_token = ''
     check_channel = ''
     env_file_path = Path('.') / '.env'
     token_bot = os.getenv('TOKEN_BOT')
