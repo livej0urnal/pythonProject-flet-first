@@ -83,7 +83,7 @@ class SignupPage:
                                         ft.Text('Signup', color=defaultFontColor, font_family="gotham"),
                                         alignment=ft.alignment.center, height=40, bgcolor=hoverBgColor, padding=10
                                     ),
-                                    login_link,
+                                    login_link
 
                                 ]
                             )
