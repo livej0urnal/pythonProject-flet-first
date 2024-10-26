@@ -10,6 +10,7 @@ class Router:
             # routing in app
             path(url='/', clear=True, view=LoginPage().view),
             path(url='/signup', clear=False, view=SignupPage().view),
+            path(url='/dashboard', clear=False, view=DashboardPage().view),
         ]
 
         Routing(
