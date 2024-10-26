@@ -55,7 +55,7 @@ class SignupPage:
         page.window.min_width = 800
         page.window.min_height = 400,
         page.fonts = {"gotham": "fonts/font.ttf"}
-        login_link = ft.Container(ft.Text('Back to Login', color=defaultFontColor, font_family="gotham"),on_click=lambda e: page.go('/'), padding=10),
+        login_link = ft.Container(ft.Text('Back to Login', color=defaultFontColor, font_family="gotham"),on_click=lambda e: page.go("/"), padding=10)
 
         return ft.View(
             "/",
@@ -83,7 +83,7 @@ class SignupPage:
                                         ft.Text('Signup', color=defaultFontColor, font_family="gotham"),
                                         alignment=ft.alignment.center, height=40, bgcolor=hoverBgColor, padding=10
                                     ),
-                                    login_link
+                                    login_link,
 
                                 ]
                             )
