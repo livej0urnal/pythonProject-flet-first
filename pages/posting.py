@@ -95,16 +95,16 @@ class PostingPage:
         posting_date = ft.Checkbox(label='Delay Send', label_style=ft.TextStyle(color=defaultFontColor))
         postingDate_field = ft.TextField(label='Select Date', bgcolor=secondaryBgColor, border=ft.InputBorder.NONE,
                                          visible=False, filled=True, color=secondaryFontColor)
-        posting_button = ft.ElevatedButton('Delay post', bgcolor=hoverBgColor, color='red',
+        posting_button = ft.ElevatedButton('Delay post', bgcolor=hoverBgColor, color=defaultFontColor,
                                            icon='schedule_send_rounded', visible=False)
-        posting_hint = ft.Text('Select Time in HH:MM format', visible=False)
+        posting_hint = ft.Text('Select Time in HH:MM format', visible=False, color='red')
 
         # create Row for form
         setting_content = ft.Column(
             controls=[
                 selected_files, message_field,
                 ft.Row([posting_date, postingDate_field, posting_hint]),
-                ft.Row([message_button, posting_button, upload_button])
+                ft.Row([message_button, posting_button, upload_button], alignment=ft.MainAxisAlignment.CENTER)
             ]
         )
 
