@@ -39,8 +39,7 @@ class PostingPage:
         def on_submit(e):
             message_text = message_field.value
             try:
-                response = sendMessage(self.token_bot, self.channel_link, message_text)
-                print(response)
+                sendMessage(self.token_bot, self.channel_link, message_text)
             except Exception as e:
                 print(e)
             # sendMessage(self.token_bot, self.channel_link, message_text)
