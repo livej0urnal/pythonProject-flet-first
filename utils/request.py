@@ -10,10 +10,13 @@ def getUpdate(token):
 # function for send in channel bot message
 def sendMessage(token, channel, text):
     url = f'https://api.telegram.org/bot{token}/sendMessage'
-    try:
-        response = requests.post(url, data={'chat_id': channel, 'text': text, 'parse_mode': 'HTML'})
-        return response.json()
-    except Exception as error:
-        print("An error occurred:", error)
+    payload = {
+        'chat_id': channel,
+        'text': text,
+        'parse_mode': 'HTML'
+    }
+    print(f"Sending message to URL: {url} with payload: {payload}")  # Логи для отладки
+    response = requests.post(url, data=payload)
+    return response.json()
 
 
