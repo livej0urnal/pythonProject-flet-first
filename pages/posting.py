@@ -5,7 +5,9 @@ from utils.style import *
 import os
 from utils.Validation import Validation
 from utils.Databes import Database
+from dotenv import load_dotenv
 
+load_dotenv()
 
 class PostingPage:
     token_bot = os.getenv('TOKEN_BOT')
