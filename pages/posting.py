@@ -1,3 +1,4 @@
+import time
 import flet as ft
 from flet_route import Params, Basket
 from utils.request import sendMessage, sendMessagePhoto
@@ -58,6 +59,13 @@ class PostingPage:
                         print("Message sent successfully!")
                     else:
                         print("Failed to send message:", response.get('description'))
+                success_message.size=12
+                success_message.update()
+                message_field.value = ''
+                message_field.update()
+                time.sleep(2)
+                success_message.size = 0
+                success_message.update()
             except Exception as e:
                 print("Error:", e)
 
