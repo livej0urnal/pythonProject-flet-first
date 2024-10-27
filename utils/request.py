@@ -21,8 +21,16 @@ def sendMessage(token, channel, text):
 
 # send photo method
 def sendMessagePhoto(token, channel, photo, caption):
-    data = {'chat_id': channel, 'caption': caption}
-    link = f'{url}{token}/sendPhoto?chat_id={channel}'
-    with open(photo, 'rb') as image_file:
-        result = requests.post(link, data=data, files={'photo': image_file})
-    return result.json()
+    try:
+        data = {'chat_id': channel, 'caption': caption}
+        link = f'{url}{token}/sendPhoto?chat_id={channel}'
+        with open(photo, 'rb') as image_file:
+            result = requests.post(link, data=data, files={'photo': image_file})
+            result.raise_for_status()  # Проверка на ошибки HTTP
+        return result.json()
+    except FileNotFoundError:
+        print(f"Error: File '{photo}' not found.")
+    except requests.exceptions.RequestException as e:
+        print(f"Request failed: {e}")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")

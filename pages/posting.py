@@ -47,7 +47,7 @@ class PostingPage:
             try:
                 print("Sending message:", message_text)  # Для отладки
                 if self.no_preview:
-                    sendMessagePhoto
+                    sendMessagePhoto(self.token_bot, self.channel_link, selected_files.src, message_text)
                 response = sendMessage(self.token_bot, self.channel_link, message_text)
                 print("Response from Telegram:", response)
                 if response.get('ok'):
