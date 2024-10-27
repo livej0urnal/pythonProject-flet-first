@@ -9,12 +9,11 @@ def getUpdate(token):
 
 # function for send in channel bot message
 def sendMessage(token, channel, text):
+    url = f'https://api.telegram.org/bot{token}/sendMessage'
     try:
-        return requests.post(
-            url=f'{url}{token}/sendMessage',
-            data={'chat_id': channel, 'text': text, 'parse_mode': 'HTML'}
-        ).json()
+        response = requests.post(url, data={'chat_id': channel, 'text': text, 'parse_mode': 'HTML'})
+        return response.json()
     except Exception as error:
-        return print(error)
+        print("An error occurred:", error)
 
 
