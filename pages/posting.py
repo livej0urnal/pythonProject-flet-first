@@ -59,6 +59,13 @@ class PostingPage:
             )
         )
 
+        #input class
+        def form_message(label):
+            return ft.TextField(label=label, bgcolor=secondaryBgColor, border=ft.InputBorder.NONE,
+                                multiline=True,
+                                min_lines=1, max_lines=4, filled=True, color=secondaryFontColor)
+
+
         # start header
         header = ft.Container(
             content=ft.Row(controls=[
@@ -80,6 +87,11 @@ class PostingPage:
                 )
             ], alignment=ft.MainAxisAlignment.SPACE_BETWEEN),
         )
+
+        message_field = form_message('Enter Text')
+        message_button = ft.ElevatedButton('Send Now', icon='send', bgcolor=hoverBgColor, color=defaultFontColor)
+        upload_button = ft.ElevatedButton('Select File')
+        posting_date = ft.Checkbox(label='Delay Send', label_style=ft.TextStyle(color=defaultFontColor))
 
 
         return ft.View(
