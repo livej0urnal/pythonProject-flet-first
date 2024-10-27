@@ -52,6 +52,7 @@ class PostingPage:
                     sendMessagePhoto(self.token_bot, self.channel_link, selected_files.src, message_text)
                     selected_files.src = 'images/preview.jpg'
                     selected_files.update()
+                    self.no_preview = False
                 else:
                     response = sendMessage(self.token_bot, self.channel_link, message_text)
                     print("Response from Telegram:", response)
@@ -79,7 +80,7 @@ class PostingPage:
                 new_file_path = os.path.join(upload_file, new_file)
                 shutil.copy(e.files[0].path, new_file_path)
                 self.preview = new_file
-                self.preview = True
+                self.no_preview = True
                 selected_files.update()
 
         # style menu
