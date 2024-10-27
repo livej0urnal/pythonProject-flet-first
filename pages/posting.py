@@ -6,7 +6,7 @@ from pathlib import Path
 import os
 
 
-class DashboardPage:
+class PostingPage:
     load_dotenv()
     AUTH_USER = False
     env_file_path = Path('.') / '.env'
