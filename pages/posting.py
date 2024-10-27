@@ -81,7 +81,7 @@ class PostingPage:
 
 
         return ft.View(
-            '/dashboard',
+            '/posting',
             controls=[
                 ft.Row(
                     expand=True,
