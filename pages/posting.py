@@ -156,7 +156,7 @@ class PostingPage:
                                            on_click=lambda e: on_submit(e))
         pick_files_dialog = ft.FilePicker(on_result=pick_files_result)
         page.overlay.append(pick_files_dialog)
-        upload_button = ft.ElevatedButton('Select File')
+        upload_button = ft.ElevatedButton('Select File', on_click=pick_files_dialog.pick_files(allow_multiple=False))
         posting_date = ft.Checkbox(label='Delay Send', label_style=ft.TextStyle(color=defaultFontColor),
                                    on_change=checkbox_change)
         postingDate_field = ft.TextField(label='Select Date', bgcolor=secondaryBgColor, border=ft.InputBorder.NONE,
