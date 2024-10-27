@@ -88,7 +88,7 @@ class PostingPage:
         )
 
         # input fields
-        selected_files = ft.Image(src='images/preview.png', width=200, height=200, fit=ft.ImageFit.FILL)
+        selected_files = ft.Image(src='images/preview.jpg', width=200, height=200, fit=ft.ImageFit.FILL)
         message_field = form_message('Enter Text')
         message_button = ft.ElevatedButton('Send Now', icon='send', bgcolor=hoverBgColor, color=defaultFontColor)
         upload_button = ft.ElevatedButton('Select File')
