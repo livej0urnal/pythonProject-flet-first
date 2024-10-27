@@ -38,7 +38,12 @@ class PostingPage:
         #function after click send now
         def on_submit(e):
             message_text = message_field.value
-            sendMessage(self.token_bot, self.channel_link, message_text)
+            try:
+                response = sendMessage(self.token_bot, self.channel_link, message_text)
+                print(response)
+            except Exception as e:
+                print(e)
+            # sendMessage(self.token_bot, self.channel_link, message_text)
 
 
         # style menu

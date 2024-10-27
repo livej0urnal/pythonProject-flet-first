@@ -1,13 +1,12 @@
 import requests
 
-url = 'https://api.telegram.org/bot'
+url = 'https://api.telegram.org/bot/'
 
 #function for get updates from api telegram
 def getUpdate(token):
     result = requests.get(f'{url}{token}/getUpdates').json()
     return print(result)
 
-# getUpdate('8159762497:AAFpOwtJcTQ3-00APg4AfabhRB9pF77CJKE')
 # function for send in channel bot message
 def sendMessage(token, channel, text):
     try:
@@ -16,5 +15,7 @@ def sendMessage(token, channel, text):
             data={'chat_id': channel, 'text': text, 'parse_mode': 'HTML'}
         ).json()
     except Exception as error:
-        return error
+        return print(error)
 
+
+getUpdate('8159762497:AAFpOwtJcTQ3-00APg4AfabhRB9pF77CJKE')
