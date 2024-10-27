@@ -6,6 +6,8 @@ import os
 from utils.Validation import Validation
 from utils.Databes import Database
 from dotenv import load_dotenv
+from utils.function import p_link_generate
+import shutil
 
 load_dotenv()
 
@@ -56,7 +58,13 @@ class PostingPage:
         # files load function
         def pick_files_result(e: ft.FilePickerResultEvent):
             if e.files:
-                file_name = e
+                file_name = p_link_generate(9)
+                selected_files.src = e.files[0].path
+                upload_file = os.path.join(os.getcwd(), 'assets/upload')
+                new_file = f'{file_name}_{os.path.basename(e.files[0].path)}'
+                new_file_path = os.path.join(upload_file, new_file)
+                shutil.copy(e.files[0].path, new_file_path)
+
 
         # style menu
         style_menu = ft.ButtonStyle(color={ft.ControlState.HOVERED: ft.colors.WHITE,
