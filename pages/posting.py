@@ -74,7 +74,7 @@ class PostingPage:
             if e.files:
                 file_name = p_link_generate(9)
                 selected_files.src = e.files[0].path
-                upload_file = os.path.join(os.getcwd(), 'assets/upload')
+                upload_file = os.path.join(os.getcwd(), 'assets/uploads')
                 new_file = f'{file_name}_{os.path.basename(e.files[0].path)}'
                 new_file_path = os.path.join(upload_file, new_file)
                 shutil.copy(e.files[0].path, new_file_path)
@@ -156,7 +156,7 @@ class PostingPage:
                                            on_click=lambda e: on_submit(e))
         pick_files_dialog = ft.FilePicker(on_result=pick_files_result)
         page.overlay.append(pick_files_dialog)
-        upload_button = ft.ElevatedButton('Select File', on_click=pick_files_dialog.pick_files(allow_multiple=False))
+        upload_button = ft.ElevatedButton('Select File', on_click=lambda e:pick_files_dialog.pick_files(allow_multiple=False))
         posting_date = ft.Checkbox(label='Delay Send', label_style=ft.TextStyle(color=defaultFontColor),
                                    on_change=checkbox_change)
         postingDate_field = ft.TextField(label='Select Date', bgcolor=secondaryBgColor, border=ft.InputBorder.NONE,
