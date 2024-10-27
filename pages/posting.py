@@ -1,5 +1,6 @@
 import flet as ft
 from flet_route import Params, Basket
+from utils.request import sendMessage
 from utils.style import *
 import os
 from utils.Validation import Validation
@@ -33,6 +34,12 @@ class PostingPage:
             posting_button.update()
             postingDate_field.update()
             posting_hint.update()
+
+        #function after click send now
+        def on_submit(e):
+            message_text = message_field.value
+            sendMessage(self.token_bot, self.channel_link, message_text)
+
 
         # style menu
         style_menu = ft.ButtonStyle(color={ft.ControlState.HOVERED: ft.colors.WHITE,
@@ -104,7 +111,8 @@ class PostingPage:
         # input fields
         selected_files = ft.Image(src='images/preview.jpg', width=200, height=200, fit=ft.ImageFit.FILL)
         message_field = form_message('Enter Text')
-        message_button = ft.ElevatedButton('Send Now', icon='send', bgcolor=hoverBgColor, color=defaultFontColor)
+        message_button = ft.ElevatedButton('Send Now', icon='send', bgcolor=hoverBgColor, color=defaultFontColor,
+                                           on_click=lambda e: on_submit(e))
         upload_button = ft.ElevatedButton('Select File')
         posting_date = ft.Checkbox(label='Delay Send', label_style=ft.TextStyle(color=defaultFontColor),
                                    on_change=checkbox_change)
