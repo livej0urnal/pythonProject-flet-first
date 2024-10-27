@@ -64,6 +64,10 @@ class PostingPage:
                 new_file = f'{file_name}_{os.path.basename(e.files[0].path)}'
                 new_file_path = os.path.join(upload_file, new_file)
                 shutil.copy(e.files[0].path, new_file_path)
+                self.preview = new_file
+                self.preview = True
+                selected_files.update()
+
 
 
         # style menu
