@@ -14,6 +14,8 @@ class PostingPage:
     channel_link = os.getenv('CHANNEL')
     validation = Validation()
     db = Database()
+    no_preview = False
+    preview = ''
 
     def view(self, page: ft.Page, params: Params, basket: Basket):
         page.title = 'Posting Page'
@@ -51,6 +53,10 @@ class PostingPage:
             except Exception as e:
                 print("Error:", e)
 
+        # files load function
+        def pick_files_result(e: ft.FilePickerResultEvent):
+            if e.files:
+                file_name = e
 
         # style menu
         style_menu = ft.ButtonStyle(color={ft.ControlState.HOVERED: ft.colors.WHITE,
@@ -124,6 +130,8 @@ class PostingPage:
         message_field = form_message('Enter Text')
         message_button = ft.ElevatedButton('Send Now', icon='send', bgcolor=hoverBgColor, color=defaultFontColor,
                                            on_click=lambda e: on_submit(e))
+        pick_files_dialog = ft.FilePicker(on_result=pick_files_result)
+        page.overlay.append(pick_files_dialog)
         upload_button = ft.ElevatedButton('Select File')
         posting_date = ft.Checkbox(label='Delay Send', label_style=ft.TextStyle(color=defaultFontColor),
                                    on_change=checkbox_change)
