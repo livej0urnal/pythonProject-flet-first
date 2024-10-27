@@ -19,4 +19,10 @@ def sendMessage(token, channel, text):
     response = requests.post(url, data=payload)
     return response.json()
 
-
+# send photo method
+def sendMessagePhoto(token, channel, photo, caption):
+    data = {'chat_id': channel, 'caption': caption}
+    link = f'{url}{token}/sendPhoto?chat_id={channel}'
+    with open(photo, 'rb') as image_file:
+        result = requests.post(link, data=data, files={'photo': image_file})
+    return result.json()

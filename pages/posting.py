@@ -1,6 +1,6 @@
 import flet as ft
 from flet_route import Params, Basket
-from utils.request import sendMessage
+from utils.request import sendMessage, sendMessagePhoto
 from utils.style import *
 import os
 from utils.Validation import Validation
@@ -46,6 +46,8 @@ class PostingPage:
             message_text = message_field.value
             try:
                 print("Sending message:", message_text)  # Для отладки
+                if self.no_preview:
+                    sendMessagePhoto
                 response = sendMessage(self.token_bot, self.channel_link, message_text)
                 print("Response from Telegram:", response)
                 if response.get('ok'):
