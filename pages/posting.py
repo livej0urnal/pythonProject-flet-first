@@ -1,13 +1,16 @@
 import flet as ft
 from flet_route import Params, Basket
 from utils.style import *
-from dotenv import set_key, load_dotenv
 import os
+from utils.Validation import Validation
+from utils.Databes import Database
 
 
 class PostingPage:
     token_bot = os.getenv('TOKEN_BOT')
     channel_link = os.getenv('CHANNEL')
+    validation = Validation()
+    db = Database()
 
     def view(self, page: ft.Page, params: Params, basket: Basket):
         page.title = 'Posting Page'
