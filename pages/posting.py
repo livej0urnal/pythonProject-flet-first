@@ -39,10 +39,14 @@ class PostingPage:
         def on_submit(e):
             message_text = message_field.value
             try:
-                sendMessage(self.token_bot, self.channel_link, message_text)
+                response = sendMessage(self.token_bot, self.channel_link, message_text)
+                print("Response from Telegram:", response)  # Для отладки
+                if response.get('ok'):
+                    print("Message sent successfully!")
+                else:
+                    print("Failed to send message:", response.get('description'))
             except Exception as e:
-                print(e)
-            # sendMessage(self.token_bot, self.channel_link, message_text)
+                print("Error:", e)
 
 
         # style menu
