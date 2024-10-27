@@ -1,6 +1,6 @@
 import requests
 
-url = 'https://api.telegram.org/bot/'
+url = 'https://api.telegram.org/bot'
 
 #function for get updates from api telegram
 def getUpdate(token):
@@ -18,4 +18,3 @@ def sendMessage(token, channel, text):
         return print(error)
 
 
-getUpdate('8159762497:AAFpOwtJcTQ3-00APg4AfabhRB9pF77CJKE')
