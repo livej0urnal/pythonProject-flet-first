@@ -11,6 +11,7 @@ import shutil
 
 load_dotenv()
 
+
 class PostingPage:
     token_bot = os.getenv('TOKEN_BOT')
     channel_link = os.getenv('CHANNEL')
@@ -27,7 +28,7 @@ class PostingPage:
         page.window.min_height = 400
         page.fonts = {"gotham": "fonts/font.ttf"}
 
-        #checkbox function
+        # checkbox function
         def checkbox_change(e):
             if e.control.value:
                 posting_button.visible = True
@@ -41,19 +42,22 @@ class PostingPage:
             postingDate_field.update()
             posting_hint.update()
 
-        #function after click send now
+        # function after click send now
         def on_submit(e):
             message_text = message_field.value
             try:
                 print("Sending message:", message_text)  # Для отладки
                 if self.no_preview:
                     sendMessagePhoto(self.token_bot, self.channel_link, selected_files.src, message_text)
-                response = sendMessage(self.token_bot, self.channel_link, message_text)
-                print("Response from Telegram:", response)
-                if response.get('ok'):
-                    print("Message sent successfully!")
+                    selected_files.src = 'images/preview.jpg'
+                    selected_files.update()
                 else:
-                    print("Failed to send message:", response.get('description'))
+                    response = sendMessage(self.token_bot, self.channel_link, message_text)
+                    print("Response from Telegram:", response)
+                    if response.get('ok'):
+                        print("Message sent successfully!")
+                    else:
+                        print("Failed to send message:", response.get('description'))
             except Exception as e:
                 print("Error:", e)
 
@@ -69,8 +73,6 @@ class PostingPage:
                 self.preview = new_file
                 self.preview = True
                 selected_files.update()
-
-
 
         # style menu
         style_menu = ft.ButtonStyle(color={ft.ControlState.HOVERED: ft.colors.WHITE,
@@ -163,7 +165,6 @@ class PostingPage:
                 ft.Row([message_button, posting_button, upload_button], alignment=ft.MainAxisAlignment.CENTER)
             ]
         )
-
 
         return ft.View(
             '/posting',
