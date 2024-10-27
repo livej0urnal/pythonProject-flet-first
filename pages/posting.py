@@ -11,40 +11,12 @@ class PostingPage:
 
     def view(self, page: ft.Page, params: Params, basket: Basket):
         self.AUTH_USER = page.session.get('auth_user')
-        page.title = 'Dashboard Page'
+        page.title = 'Posting Page'
         page.window.width = defaultWidthWindow
         page.window.height = defaultHeightWindow
         page.window.min_width = 900
         page.window.min_height = 400
         page.fonts = {"gotham": "fonts/font.ttf"}
-
-        #save data function
-        def save_settings(e):
-            token = token_input.content.value
-            channel = channel_input.content.value
-            set_key(dotenv_path=self.env_file_path, key_to_set='TOKEN_BOT', value_to_set=token)
-            set_key(dotenv_path=self.env_file_path, key_to_set='CHANNEL', value_to_set=channel)
-            token_input.disabled = True
-            channel_input.disabled = True
-            page.session.set('TOKEN', token)
-            page.session.set('CHANNEL', channel)
-            self.token_bot = page.session.get('TOKEN_BOT')
-            self.channel_link = page.session.get('CHANNEL')
-            send_btn.text = 'Save success'
-            send_btn.disabled = True
-            send_btn.update()
-            token_input.update()
-            channel_input.update()
-            page.update()
-
-        # function for create inputs
-        def input_form(label):
-            return ft.TextField(label=f'{label}',bgcolor=secondaryBgColor,border=ft.InputBorder.NONE,filled=True,color=secondaryFontColor)
-
-        # style disable input
-        def input_disabled(value):
-            return ft.TextField(value=f'{value}', bgcolor=secondaryBgColor, border=ft.InputBorder.NONE, filled=True, disabled=True,
-                                color=secondaryFontColor)
 
         # style menu
         style_menu = ft.ButtonStyle(color={ft.ControlState.HOVERED: ft.colors.WHITE,
@@ -83,7 +55,7 @@ class PostingPage:
         # start header
         header = ft.Container(
             content=ft.Row(controls=[
-                ft.Text('Dashboard', color=defaultFontColor, font_family='gotham', size=18),
+                ft.Text('Posting Page', color=defaultFontColor, font_family='gotham', size=18),
                 ft.Row(
                     controls=[
                         ft.CircleAvatar(
@@ -102,28 +74,6 @@ class PostingPage:
             ], alignment=ft.MainAxisAlignment.SPACE_BETWEEN),
         )
 
-        # token input
-        if not self.token_bot and not page.session.get('TOKEN'):
-            token_input = ft.Container(content=input_form('Token'),border_radius=15)
-        elif page.session.get('TOKEN'):
-            token_input = ft.Container(content=input_disabled(page.session.get('TOKEN')), border_radius=15)
-        else:
-            token_input = ft.Container(content=input_disabled(self.token_bot), border_radius=15)
-
-        # channel input
-        if not self.channel_link and not page.session.get('CHANNEL'):
-            channel_input = ft.Container(content=input_form('Channel ID'),border_radius=15)
-        elif page.session.get('CHANNEL'):
-            channel_input = ft.Container(content=input_disabled(page.session.get('CHANNEL')), border_radius=15)
-        else:
-            channel_input = ft.Container(content=input_disabled(self.channel_link), border_radius=15)
-
-        # save data
-        if not self.token_bot or not self.channel_link:
-            send_btn = ft.ElevatedButton('Save', bgcolor=hoverBgColor, color=defaultFontColor, icon='settings', on_click=lambda e: save_settings(e))
-        else:
-            send_btn = ft.ElevatedButton('Saved success', bgcolor=inputBgColor, color=defaultFontColor, icon='save',
-                                         on_click=lambda e: save_settings(e), disabled=True)
 
         return ft.View(
             '/dashboard',
@@ -146,7 +96,7 @@ class PostingPage:
                         ft.Container(
                             expand=4,
                             padding=ft.padding.symmetric(15, 10),
-                            content=ft.Column([header, token_input, channel_input, send_btn]),
+                            content=ft.Column([header]),
                         )
                     ]
                 )
