@@ -20,6 +20,20 @@ class PostingPage:
         page.window.min_height = 400
         page.fonts = {"gotham": "fonts/font.ttf"}
 
+        #checkbox function
+        def checkbox_change(e):
+            if e.control.value:
+                posting_button.visible = True
+                postingDate_field.visible = True
+                posting_hint.visible = True
+            else:
+                posting_button.visible = False
+                postingDate_field.visible = False
+                posting_hint.visible = False
+            posting_button.update()
+            postingDate_field.update()
+            posting_hint.update()
+
         # style menu
         style_menu = ft.ButtonStyle(color={ft.ControlState.HOVERED: ft.colors.WHITE,
                                            ft.ControlState.DEFAULT: menuFontColor},
@@ -92,7 +106,8 @@ class PostingPage:
         message_field = form_message('Enter Text')
         message_button = ft.ElevatedButton('Send Now', icon='send', bgcolor=hoverBgColor, color=defaultFontColor)
         upload_button = ft.ElevatedButton('Select File')
-        posting_date = ft.Checkbox(label='Delay Send', label_style=ft.TextStyle(color=defaultFontColor))
+        posting_date = ft.Checkbox(label='Delay Send', label_style=ft.TextStyle(color=defaultFontColor),
+                                   on_change=checkbox_change)
         postingDate_field = ft.TextField(label='Select Date', bgcolor=secondaryBgColor, border=ft.InputBorder.NONE,
                                          visible=False, filled=True, color=secondaryFontColor)
         posting_button = ft.ElevatedButton('Delay post', bgcolor=hoverBgColor, color=defaultFontColor,
