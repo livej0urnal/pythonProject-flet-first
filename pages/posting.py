@@ -59,12 +59,11 @@ class PostingPage:
             )
         )
 
-        #input class
+        # input class
         def form_message(label):
             return ft.TextField(label=label, bgcolor=secondaryBgColor, border=ft.InputBorder.NONE,
                                 multiline=True,
                                 min_lines=1, max_lines=4, filled=True, color=secondaryFontColor)
-
 
         # start header
         header = ft.Container(
@@ -88,9 +87,6 @@ class PostingPage:
             ], alignment=ft.MainAxisAlignment.SPACE_BETWEEN),
         )
 
-
-
-
         # input fields
         selected_files = ft.Image(src='images/preview.png', width=200, height=200, fit=ft.ImageFit.FILL)
         message_field = form_message('Enter Text')
@@ -98,11 +94,14 @@ class PostingPage:
         upload_button = ft.ElevatedButton('Select File')
         posting_date = ft.Checkbox(label='Delay Send', label_style=ft.TextStyle(color=defaultFontColor))
 
+        # create Row for form
         setting_content = ft.Column(
             controls=[
                 selected_files, message_field, ft.Row([message_button, upload_button, posting_date])
             ]
         )
+
+
         return ft.View(
             '/posting',
             controls=[
@@ -124,7 +123,7 @@ class PostingPage:
                         ft.Container(
                             expand=4,
                             padding=ft.padding.symmetric(15, 10),
-                            content=ft.Column([header]),
+                            content=ft.Column([header, setting_content]),
                         )
                     ]
                 )
