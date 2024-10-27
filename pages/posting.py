@@ -2,14 +2,10 @@ import flet as ft
 from flet_route import Params, Basket
 from utils.style import *
 from dotenv import set_key, load_dotenv
-from pathlib import Path
 import os
 
 
 class PostingPage:
-    load_dotenv()
-    AUTH_USER = False
-    env_file_path = Path('.') / '.env'
     token_bot = os.getenv('TOKEN_BOT')
     channel_link = os.getenv('CHANNEL')
 

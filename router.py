@@ -1,6 +1,7 @@
 import flet as ft
 from flet_route import Routing, path
 from pages.login import LoginPage
+from pages.posting import PostingPage
 from pages.signup import SignupPage
 from pages.dashboard import DashboardPage
 
@@ -12,6 +13,7 @@ class Router:
             path(url='/', clear=True, view=DashboardPage().view),
             path(url='/signup', clear=False, view=SignupPage().view),
             path(url='/dashboard', clear=False, view=DashboardPage().view),
+            path(url='/posting', clear=False, view=PostingPage().view),
         ]
 
         Routing(
