@@ -18,4 +18,3 @@ def sendMessage(token, channel, text):
     except Exception as error:
         return error
 
-# getUpdate('8159762497:AAFpOwtJcTQ3-00APg4AfabhRB9pF77CJKE')
