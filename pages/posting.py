@@ -156,11 +156,12 @@ class PostingPage:
         posting_button = ft.ElevatedButton('Delay post', bgcolor=hoverBgColor, color=defaultFontColor,
                                            icon='schedule_send_rounded', visible=False)
         posting_hint = ft.Text('Select Time in HH:MM format', visible=False, color='red')
+        success_message = ft.Text('Post send complete', color=hoverBgColor, size=0)
 
         # create Row for form
         setting_content = ft.Column(
             controls=[
-                selected_files, message_field,
+                selected_files, success_message, message_field,
                 ft.Row([posting_date, postingDate_field, posting_hint]),
                 ft.Row([message_button, posting_button, upload_button], alignment=ft.MainAxisAlignment.CENTER)
             ]
