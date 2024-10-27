@@ -39,8 +39,9 @@ class PostingPage:
         def on_submit(e):
             message_text = message_field.value
             try:
+                print("Sending message:", message_text)  # Для отладки
                 response = sendMessage(self.token_bot, self.channel_link, message_text)
-                print("Response from Telegram:", response)  # Для отладки
+                print("Response from Telegram:", response)
                 if response.get('ok'):
                     print("Message sent successfully!")
                 else:
