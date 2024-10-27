@@ -8,10 +8,12 @@ def getUpdate(token):
     return print(result)
 
 # getUpdate('8159762497:AAFpOwtJcTQ3-00APg4AfabhRB9pF77CJKE')
-
+# function for send in channel bot message
 def sendMessage(token, channel, text):
     try:
         return requests.post(
             url=f'{url}{token}/sendMessage',
-            data={'chat_id': channel, 'text': text}
-        )
+            data={'chat_id': channel, 'text': text, 'parse_mode': 'HTML'}
+        ).json()
+    except Exception as error:
+        return error
