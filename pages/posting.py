@@ -24,7 +24,12 @@ class PostingPage:
                                     icon_size=14,
                                     overlay_color=hoverBgColor,
                                     shadow_color=hoverBgColor, )
-
+        # active menu link
+        style_menu_active = ft.ButtonStyle(color={ft.ControlState.DEFAULT: ft.colors.WHITE,
+                                                  ft.ControlState.HOVERED: menuFontColor},
+                                           icon_size=14,
+                                           overlay_color=hoverBgColor,
+                                           shadow_color=hoverBgColor, )
         # sidebar view
         logo = ft.Container(
             padding=ft.padding.symmetric(17, 13),
@@ -45,8 +50,8 @@ class PostingPage:
                     ft.Text('Navigation', color=menuFontColor, font_family='gotham', size=14),
                     ft.TextButton('Home', icon='space_dashboard_rounded', style=style_menu,
                                   on_click=lambda e: page.go('/dashboard')),
-                    ft.TextButton('Post', icon='post_add', style=style_menu,
-                                  on_click=lambda e: page.go('/post')),
+                    ft.TextButton('Post', icon='post_add', style=style_menu_active,
+                                  on_click=lambda e: page.go('/posting')),
                     ft.TextButton('Test', icon='verified_user', style=style_menu),
                 ]
             )
