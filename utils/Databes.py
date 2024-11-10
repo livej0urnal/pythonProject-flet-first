@@ -18,6 +18,8 @@ class Database:
         self.Base = declarative_base()
 
         self.adminUser = Table('admin_user', self.metadata, autoload_with=self.engine)
+        #add new delay post table
+        self.postPending = Table('pending_post', self.metadata, autoload_with=self.engine)
 
         self.Session = sessionmaker(bind=self.engine)
         self.session = self.Session()
