@@ -107,7 +107,7 @@ class PostingPage:
                     selected_files.update()
                 else:
                     self.db.insert_post(message_field.value, 'NULL', link, postingDate_field.value)
-                    self.scheduler.add_job(deffer_img, 'date',
+                    self.scheduler.add_job(deferred_post, 'date',
                                            run_date=datetime.today().replace(hour=post_hour, minute=post_minute,
                                                                              second=0), args=[link])
                 success_message.size = 10
