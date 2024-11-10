@@ -66,7 +66,7 @@ class PostingPage:
                         print("Message sent successfully!")
                     else:
                         print("Failed to send message:", response.get('description'))
-                success_message.size=12
+                success_message.size = 12
                 success_message.update()
                 message_field.value = ''
                 message_field.update()
@@ -76,18 +76,18 @@ class PostingPage:
             except Exception as e:
                 print("Error:", e)
 
-        #method delay post with image
+        # method delay post with image
         def deffer_img(date):
             post = self.db.get_post(date)
             images = f'assets/upload/{post[2]}'
             sendMessagePhoto(self.token_bot, self.channel_link, images, post[1])
 
-        #method delay post no image
+        # method delay post no image
         def deferred_post(date):
             post = self.db.get_post(date)
             sendMessagePhoto(self.token_bot, self.channel_link, post[1])
 
-        #function delay posting
+        # function delay posting
         def on_posting_deffer(e):
             if self.validation.is_valid_date(postingDate_field.value):
                 postdate = postingDate_field.value
@@ -97,7 +97,9 @@ class PostingPage:
                 link = p_link_generate(9)
                 if self.no_preview:
                     self.db.insert_post(message_field.value, self.preview, link, postingDate_field.value)
-                    self.scheduler.add_job(deffer_img, 'date', run_date=datetime.today().replace(hour=post_hour, minute=post_minute, second=0),
+                    self.scheduler.add_job(deffer_img, 'date',
+                                           run_date=datetime.today().replace(hour=post_hour, minute=post_minute,
+                                                                             second=0),
                                            args=[link])
                     selected_files.src = 'images/preview.jpg'
                     self.preview = ''
@@ -107,7 +109,7 @@ class PostingPage:
                     self.db.insert_post(message_field.value, 'NULL', link, postingDate_field.value)
                     self.scheduler.add_job(deffer_img, 'date',
                                            run_date=datetime.today().replace(hour=post_hour, minute=post_minute,
-                                                                             second=0),args=[link])
+                                                                             second=0), args=[link])
             else:
                 error_message.size = 10
                 error_message.update()
@@ -202,13 +204,15 @@ class PostingPage:
                                            on_click=lambda e: on_submit(e))
         pick_files_dialog = ft.FilePicker(on_result=pick_files_result)
         page.overlay.append(pick_files_dialog)
-        upload_button = ft.ElevatedButton('Select File', on_click=lambda e:pick_files_dialog.pick_files(allow_multiple=False))
+        upload_button = ft.ElevatedButton('Select File',
+                                          on_click=lambda e: pick_files_dialog.pick_files(allow_multiple=False))
         posting_date = ft.Checkbox(label='Delay Send', label_style=ft.TextStyle(color=defaultFontColor),
                                    on_change=on_posting_deffer)
         postingDate_field = ft.TextField(label='Select Date', bgcolor=secondaryBgColor, border=ft.InputBorder.NONE,
                                          visible=False, filled=True, color=secondaryFontColor)
         posting_button = ft.ElevatedButton('Delay post', bgcolor=hoverBgColor, color=defaultFontColor,
-                                           icon='schedule_send_rounded', visible=False, on_click= lambda e:on_posting_deffer(e))
+                                           icon='schedule_send_rounded', visible=False,
+                                           on_click=lambda e: on_posting_deffer(e))
         posting_hint = ft.Text('Select Time in HH:MM format', visible=False, color='red')
         success_message = ft.Text('Post send complete', color=hoverBgColor, size=0)
         error_message = ft.Text('Publish error', color=red, size=0)
