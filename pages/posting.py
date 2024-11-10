@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 from utils.function import p_link_generate
 from apscheduler.schedulers.background import BackgroundScheduler
 import shutil
-import datetime
+from datetime import datetime
 
 load_dotenv()
 
