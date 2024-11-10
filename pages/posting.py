@@ -79,7 +79,7 @@ class PostingPage:
         # method delay post with image
         def deffer_img(date):
             post = self.db.get_post(date)
-            images = f'assets/upload/{post[2]}'
+            images = f'assets/uploads/{post[2]}'
             sendMessagePhoto(self.token_bot, self.channel_link, images, post[1])
 
         # method delay post no image
