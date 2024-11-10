@@ -13,4 +13,5 @@ Also read the comments inside the files for a better understanding.</p>
     <li>pip install pymysql</li>
     <li>pip install sqlalchemy</li>
     <li>pip install requests</li>
+    <li>pip install APScheduler</li>
 </ul>
