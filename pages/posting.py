@@ -83,7 +83,7 @@ class PostingPage:
                 posttime = postdate.split(":")
                 post_hour = int(posttime[0])
                 post_minute = int(posttime[1])
-
+                link = p_link_generate(9)
                 if self.no_preview:
                     self.db.insert_post(message_field.value, self.preview, link, postingDate_field.value)
                     self.scheduler.add_job(run_date=datetime.today().replace(hour=post_hour, minute=post_minute, second=0),)
