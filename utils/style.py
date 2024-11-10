@@ -13,3 +13,4 @@ defaultHeightWindow = '600'
 
 inputBgErrorColor = '#291919'
 menuFontColor = '#949596'
+colorRed  = '#ff0000'

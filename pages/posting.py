@@ -223,7 +223,7 @@ class PostingPage:
                                            on_click=lambda e: on_posting_deffer(e))
         posting_hint = ft.Text('Select Time in HH:MM format', visible=False, color='red')
         success_message = ft.Text('Post send complete', color=hoverBgColor, size=0)
-        error_message = ft.Text('Publish error', color=red, size=0)
+        error_message = ft.Text('Publish error', color=colorRed, size=0)
 
         # create Row for form
         setting_content = ft.Column(
