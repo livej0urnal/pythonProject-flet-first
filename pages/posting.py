@@ -1,4 +1,6 @@
 import time
+from datetime import timezone
+
 import flet as ft
 from flet_route import Params, Basket
 from utils.request import sendMessage, sendMessagePhoto
@@ -21,6 +23,8 @@ class PostingPage:
     db = Database()
     no_preview = False
     preview = ''
+    scheduler = BackgroundScheduler(timezone='Europe/Moscow')
+    scheduler.start()
 
     def view(self, page: ft.Page, params: Params, basket: Basket):
         page.title = 'Posting Page'
