@@ -24,7 +24,7 @@ class PostingPage:
     db = Database()
     no_preview = False
     preview = ''
-    scheduler = BackgroundScheduler(timezone='Europe/Moscow')
+    scheduler = BackgroundScheduler(timezone='Europe/Kyiv')
     scheduler.start()
 
     def view(self, page: ft.Page, params: Params, basket: Basket):
