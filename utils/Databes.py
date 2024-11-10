@@ -43,3 +43,7 @@ class Database:
     def authorization(self, email, password):
         result = self.session.execute(select(self.adminUser).where(and_(self.adminUser.c.email == email, self.adminUser.c.password == password)))
         return result.fetchone()
+
+    #method add post in db
+    def insert_post(self, message, path_img, link_post, time):
+        self.session.execute(insert(self.PostPending).values(message=message, path_img=path_img, link_post=link_post, time=time))
