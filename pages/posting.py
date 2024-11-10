@@ -229,7 +229,7 @@ class PostingPage:
         setting_content = ft.Column(
             controls=[
                 selected_files, success_message, message_field,
-                ft.Row(error_message),
+                ft.Row([error_message]),
                 ft.Row([posting_date, postingDate_field, posting_hint]),
                 ft.Row([message_button, posting_button, upload_button], alignment=ft.MainAxisAlignment.CENTER)
             ]
