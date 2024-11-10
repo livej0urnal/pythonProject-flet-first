@@ -76,6 +76,10 @@ class PostingPage:
             except Exception as e:
                 print("Error:", e)
 
+        #method delay post with image
+        def deffer_img(date):
+
+
         #function delay posting
         def on_posting_deffer(e):
             if self.validation.is_valid_date(postingDate_field.value):
@@ -86,7 +90,17 @@ class PostingPage:
                 link = p_link_generate(9)
                 if self.no_preview:
                     self.db.insert_post(message_field.value, self.preview, link, postingDate_field.value)
-                    self.scheduler.add_job(run_date=datetime.today().replace(hour=post_hour, minute=post_minute, second=0),)
+                    self.scheduler.add_job(deffer_img, 'date', run_date=datetime.today().replace(hour=post_hour, minute=post_minute, second=0),
+                                           args=[link])
+                    selected_files.src = 'images/preview.jpg'
+                    self.preview = ''
+                    self.no_preview = False
+                    selected_files.update()
+                else:
+                    self.db.insert_post(message_field.value, 'NULL', link, postingDate_field.value)
+                    self.scheduler.add_job(deffer_img, 'date',
+                                           run_date=datetime.today().replace(hour=post_hour, minute=post_minute,
+                                                                             second=0),args=[link])
             else:
                 error_message.size = 10
                 error_message.update()
