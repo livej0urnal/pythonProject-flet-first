@@ -84,6 +84,7 @@ class PostingPage:
 
                 if self.no_preview:
                     self.db.insert_post(message_field.value, self.preview, link, postingDate_field.value)
+                    self.scheduler.add_job(func=checkbox_change, args=[post_hour, post_minute])
             else:
                 error_message.size = 10
                 error_message.update()
