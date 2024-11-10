@@ -1,6 +1,7 @@
 import time
 from datetime import timezone
 import flet as ft
+from django.utils.datetime_safe import datetime
 from flet_route import Params, Basket
 from utils.request import sendMessage, sendMessagePhoto
 from utils.style import *
@@ -84,7 +85,7 @@ class PostingPage:
 
                 if self.no_preview:
                     self.db.insert_post(message_field.value, self.preview, link, postingDate_field.value)
-                    self.scheduler.add_job(func=checkbox_change, args=[post_hour, post_minute])
+                    self.scheduler.add_job(run_date=datetime.today().replace(hour=post_hour, minute=post_minute, second=0),)
             else:
                 error_message.size = 10
                 error_message.update()
