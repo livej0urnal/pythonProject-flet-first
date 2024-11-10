@@ -1,6 +1,5 @@
 import time
 from datetime import timezone
-
 import flet as ft
 from flet_route import Params, Basket
 from utils.request import sendMessage, sendMessagePhoto
@@ -77,7 +76,20 @@ class PostingPage:
 
         #function delay posting
         def on_posting_deffer(e):
-            pass
+            if self.validation.is_valid_date(postingDate_field.value):
+                postdate = postingDate_field.value
+                posttime = postdate.split(":")
+                post_hour = int(posttime[0])
+                post_minute = int(posttime[1])
+
+                if self.no_preview:
+                    self.db.insert_post(message_field.value, self.preview, link, postingDate_field.value)
+            else:
+                error_message.size = 10
+                error_message.update()
+                time.sleep(2)
+                error_message.size = 0
+                error_message.update()
 
         # files load function
         def pick_files_result(e: ft.FilePickerResultEvent):
@@ -175,11 +187,13 @@ class PostingPage:
                                            icon='schedule_send_rounded', visible=False, on_click= lambda e:on_posting_deffer(e))
         posting_hint = ft.Text('Select Time in HH:MM format', visible=False, color='red')
         success_message = ft.Text('Post send complete', color=hoverBgColor, size=0)
+        error_message = ft.Text('Publish error', color=red, size=0)
 
         # create Row for form
         setting_content = ft.Column(
             controls=[
                 selected_files, success_message, message_field,
+                ft.Row(error_message),
                 ft.Row([posting_date, postingDate_field, posting_hint]),
                 ft.Row([message_button, posting_button, upload_button], alignment=ft.MainAxisAlignment.CENTER)
             ]
