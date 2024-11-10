@@ -75,6 +75,10 @@ class PostingPage:
             except Exception as e:
                 print("Error:", e)
 
+        #function delay posting
+        def on_posting_deffer(e):
+            pass
+
         # files load function
         def pick_files_result(e: ft.FilePickerResultEvent):
             if e.files:
@@ -164,11 +168,11 @@ class PostingPage:
         page.overlay.append(pick_files_dialog)
         upload_button = ft.ElevatedButton('Select File', on_click=lambda e:pick_files_dialog.pick_files(allow_multiple=False))
         posting_date = ft.Checkbox(label='Delay Send', label_style=ft.TextStyle(color=defaultFontColor),
-                                   on_change=checkbox_change)
+                                   on_change=on_posting_deffer)
         postingDate_field = ft.TextField(label='Select Date', bgcolor=secondaryBgColor, border=ft.InputBorder.NONE,
                                          visible=False, filled=True, color=secondaryFontColor)
         posting_button = ft.ElevatedButton('Delay post', bgcolor=hoverBgColor, color=defaultFontColor,
-                                           icon='schedule_send_rounded', visible=False)
+                                           icon='schedule_send_rounded', visible=False, on_click= lambda e:on_posting_deffer(e))
         posting_hint = ft.Text('Select Time in HH:MM format', visible=False, color='red')
         success_message = ft.Text('Post send complete', color=hoverBgColor, size=0)
 
