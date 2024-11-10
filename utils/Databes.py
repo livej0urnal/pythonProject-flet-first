@@ -52,5 +52,5 @@ class Database:
 
     #method get post
     def get_post(self, link):
-        result = self.session.execut(select(self.postPending).where(self.postPending.c.link_post == link))
+        result = self.session.execute(select(self.postPending).where(self.postPending.c.link_post == link))
         return result.fetchone()
