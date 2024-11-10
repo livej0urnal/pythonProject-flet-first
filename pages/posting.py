@@ -215,7 +215,7 @@ class PostingPage:
         upload_button = ft.ElevatedButton('Select File',
                                           on_click=lambda e: pick_files_dialog.pick_files(allow_multiple=False))
         posting_date = ft.Checkbox(label='Delay Send', label_style=ft.TextStyle(color=defaultFontColor),
-                                   on_change=on_posting_deffer)
+                                   on_change=checkbox_change)
         postingDate_field = ft.TextField(label='Select Date', bgcolor=secondaryBgColor, border=ft.InputBorder.NONE,
                                          visible=False, filled=True, color=secondaryFontColor)
         posting_button = ft.ElevatedButton('Delay post', bgcolor=hoverBgColor, color=defaultFontColor,
