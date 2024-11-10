@@ -46,4 +46,11 @@ class Database:
 
     #method add post in db
     def insert_post(self, message, path_img, link_post, time):
-        self.session.execute(insert(self.PostPending).values(message=message, path_img=path_img, link_post=link_post, time=time))
+        self.session.execute(insert(self.postPending).values(message=message, path_img=path_img, link_post=link_post, time=time))
+
+        self.session.commit()
+
+    #method get post
+    def get_post(self, link):
+        result = self.session.execut(select(self.postPending).where(self.postPending.c.link_post == link))
+        return result.fetchone()
