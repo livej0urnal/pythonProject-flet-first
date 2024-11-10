@@ -110,6 +110,14 @@ class PostingPage:
                     self.scheduler.add_job(deffer_img, 'date',
                                            run_date=datetime.today().replace(hour=post_hour, minute=post_minute,
                                                                              second=0), args=[link])
+                success_message.size = 10
+                success_message.value = 'Success add delay post'
+                success_message.update()
+                message_field.value = ''
+                message_field.update()
+                time.sleep(2)
+                success_message.size = 0
+                success_message.update()
             else:
                 error_message.size = 10
                 error_message.update()
