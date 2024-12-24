@@ -1,7 +1,6 @@
 import time
 from datetime import timezone
 import flet as ft
-from django.utils.datetime_safe import datetime
 from flet_route import Params, Basket
 from utils.request import sendMessage, sendMessagePhoto
 from utils.style import *
